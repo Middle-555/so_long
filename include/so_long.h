@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/02/29 15:58:46 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/02/29 18:44:29 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@
 # define EXIT 'E'
 # define COLLECT 'C'
 
+# ifdef __linux__
+#  include <X11/keysym.h>
+#  include <X11/X.h>
+# elif __APPLE__
+#  include <ApplicationServices/ApplicationServices.h>
+# endif
+
 # include "../mlx/mlx.h"
 # include <stdlib.h>
 # include <stdio.h>
@@ -27,6 +34,20 @@
 # include "../libraries/ft_printf/include/ft_printf.h"
 # include "../libraries/libft/include/libft.h"
 
+// keycode
+# define KEY_ESC 65307
+# define KEY_Z 122
+# define KEY_Q 113
+# define KEY_S 115
+# define KEY_D 100
+# define KEY_UP 65362
+# define KEY_DOWN 65364
+# define KEY_RIGHT 65363
+# define KEY_LEFT 65361
+
+// Windows size
+# define WINDOWS_WIDTH 500
+# define WINDOWS_HEIGHT 500
 
 typedef struct s_map
 {

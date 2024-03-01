@@ -6,14 +6,15 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:04:39 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/02/29 16:09:06 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/02/29 19:05:26 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-// Verify that we have a playable map (rectangular + not empty) + give the dimension of the map.
-int		map_parser(t_map *map)
+// Verify that we have a playable map (rectangular + not empty) 
+// Give the dimension of the map.
+int	map_parser(t_map *map)
 {
 	int		fd;
 	char	*line;
