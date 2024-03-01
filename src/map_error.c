@@ -6,13 +6,13 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:04:39 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/02/29 19:05:26 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/01 15:34:34 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-// Verify that we have a playable map (rectangular + not empty) 
+// Verify that we have a playable map (rectangular + not empty).
 // Give the dimension of the map.
 int	map_parser(t_map *map)
 {
@@ -41,25 +41,55 @@ int	map_parser(t_map *map)
 	return (1);
 }
 
-
-/*int		tab_filler(t_map *map, char **map_data)
+// Fill our tab with the map infos.
+int	tab_filler(t_map *map, char **map_data)
 {
-	map->tab = (char **)malloc(sizeof(char *) * (map->height + 1));
+	char	**data_ptr;
+	int		i;
+
+	data_ptr = map_data;
+	map->tab = (char **)malloc(sizeof(char *) * (map->height));
 	if (!map->tab)
 		return (0);
-	char **data_ptr = map_data;
-	char **tab_ptr = map->tab;
-	while (*data_ptr)
+	i = 0;
+	while (*data_ptr && i < map->height)
 	{
-		*tab_ptr = (char *)malloc(sizeof(char) * (map->width + 1));
-		if (!*tab_ptr)
+		map->tab[i] = (char *)malloc(sizeof(char) * (map->width + 1));
+		if (!map->tab[i])
 			return (0);
-		strncpy(*tab_ptr, *data_ptr, map->width);
-		(*tab_ptr)[map->width] = '\0';
-        	data_ptr++;
-		tab_ptr++;
+		ft_strncpy(map->tab[i], *data_ptr, map->width);
+		map->tab[i][map->width] = '\0';
+		data_ptr++;
+		i++;
 	}
-	*tab_ptr = NULL;
-    	return (1);
-}*/
+	return (1);
+}
 
+// Check that the map is surrounded by walls
+
+int	check_wall_error(t_map *map)
+{
+	char	*first_row;
+	char	*last_row;
+	char	**current_row;
+	char	**end_row;
+
+	first_row = map -> tab[0];
+	last_row = map -> tab[map -> height - 1];
+	current_row = map ->tab + 1;
+	end_row = map -> tab + map ->height - 1;
+	while (*first_row && *last_row)
+	{
+		if (*first_row != '1' || *last_row != '1')
+			return (0);
+		first_row++;
+		last_row++;
+	}
+	while (current_row < end_row)
+	{
+		if (**current_row != '1' || *(*current_row + map ->width - 1) != '1')
+			return (0);
+		current_row++;
+	}
+	return (1);
+}

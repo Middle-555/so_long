@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/02/29 18:44:29 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/01 13:23:13 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@
 typedef struct s_map
 {
 	char	*path;
+	char	**tab;
 	int		height;
 	int		width;
 	int		fd;
@@ -82,10 +83,9 @@ int		input_handler(int keycode, t_so_long so_long);
 // 					map_check 						//
 void	map_error(char	*str);
 int		map_parser(t_map *map);
-
+int		main(void);
 //					so_long.c						//
 int		tab_filler(t_map *map, char **map_data);
-
 // 					utils 							//
 
 size_t	ft_size_line(char *str);
