@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/02 13:02:18 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/04 18:10:01 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,11 @@
 # define WINDOWS_WIDTH 500
 # define WINDOWS_HEIGHT 500
 
+typedef struct s_position
+{
+	int	x;
+	int	y;
+}	t_position;
 typedef struct s_map
 {
 	char	*path;
@@ -80,7 +85,7 @@ typedef struct s_so_long
 }	t_so_long;
 
 //					input							//
-int		input_handler(int keycode, t_so_long so_long);
+int		input_handler(int keycode, t_so_long game);
 // 					map_check 						//
 void	map_error(char	*str);
 int		map_parser(t_map *map);

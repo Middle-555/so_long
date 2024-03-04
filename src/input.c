@@ -6,13 +6,13 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 14:49:42 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/02/29 19:04:57 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/04 17:05:54 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	input_handler(int keycode, t_so_long so_long)
+int	input_handler(int keycode, t_so_long *game)
 {
 
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_utils.c                                    :+:      :+:    :+:   */
+/*   game_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 11:41:08 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/04 13:43:31 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/04 17:06:50 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,20 +43,20 @@ void	map_error(char	*str)
 	exit(1);
 }
 
-void	free_sprite(t_so_long *so_long)
+void	free_sprite(t_so_long *game)
 {
-	if (!so_long)
+	if (!game)
 		return (NULL);
-	if (so_long -> sprite.player)
-		mlx_destroy_image(so_long -> mlx, so_long -> sprite.player);
-	if (so_long -> sprite.wall)
-		mlx_destroy_image(so_long -> mlx, so_long -> sprite.wall);
-	if (so_long -> sprite.ground)
-		mlx_destroy_image(so_long -> mlx, so_long -> sprite.ground);
-	if (so_long -> sprite.collectible)
-		mlx_destroy_image(so_long -> mlx, so_long -> sprite.collectible);
-	if (so_long -> sprite.exit)
-		mlx_destroy_image(so_long -> mlx, so_long -> sprite.exit);
+	if (game -> sprite.player)
+		mlx_destroy_image(game -> mlx, game -> sprite.player);
+	if (game -> sprite.wall)
+		mlx_destroy_image(game -> mlx, game -> sprite.wall);
+	if (game -> sprite.ground)
+		mlx_destroy_image(game -> mlx, game -> sprite.ground);
+	if (game -> sprite.collectible)
+		mlx_destroy_image(game -> mlx, game -> sprite.collectible);
+	if (game -> sprite.exit)
+		mlx_destroy_image(game -> mlx, game -> sprite.exit);
 }
 
 void	create_game_window(t_so_long *game, int height, int width)
@@ -64,7 +64,7 @@ void	create_game_window(t_so_long *game, int height, int width)
 	if (game ->mlx == NULL)
 		return (0);
 	game ->window = mlx_new_window(game -> mlx, width * 80,
-			height * 80, "So_Long");
+			height * 80, "kpourcel - So_long");
 	if (game -> window == NULL)
 	{
 		free(game ->mlx);
