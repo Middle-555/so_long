@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 23:16:03 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/02/29 16:07:58 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/04 13:42:58 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,3 +40,20 @@ t_sprites	init_sprites(void *mlx, t_so_long *game)
 		map_error("Couldn't load the ground XPM.");
 	return (sprite);
 }
+
+void	put_sprite_on_screen(t_so_long *game, int height, int width)
+{
+	if (game->map.tab[height][width] == WALL)
+		mlx_put_image_to_window(game->mlx, game->window,
+			game->sprite.wall, width * 50, height * 50);
+	else if (game->map.tab[height][width] == COLLECT)
+		mlx_put_image_to_window(game->mlx, game->window,
+			game->sprite.collectible, width * 50, height * 50);
+	else if (game->map.tab[height][width] == EXIT)
+		mlx_put_image_to_window(game->mlx, game->window,
+			game->sprite.exit, width * 50, height * 50);
+	else if (game->map.tab[height][width] == PLAYER)
+		mlx_put_image_to_window(game->mlx, game->window,
+			game->sprite.player, width * 50, height * 50);
+}
+

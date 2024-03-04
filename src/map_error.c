@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:04:39 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/01 15:34:34 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/01 16:08:05 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,14 @@ int	check_wall_error(t_map *map)
 	end_row = map -> tab + map ->height - 1;
 	while (*first_row && *last_row)
 	{
-		if (*first_row != '1' || *last_row != '1')
+		if (*first_row != WALL || *last_row != WALL)
 			return (0);
 		first_row++;
 		last_row++;
 	}
 	while (current_row < end_row)
 	{
-		if (**current_row != '1' || *(*current_row + map ->width - 1) != '1')
+		if (**current_row != WALL || *(*current_row + map ->width - 1) != WALL)
 			return (0);
 		current_row++;
 	}

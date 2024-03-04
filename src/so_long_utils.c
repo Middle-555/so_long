@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 11:41:08 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/02/29 20:00:14 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/04 13:43:31 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	ft_size_line(char *str)
 	return (i);
 }
 
-int	check_ber_format(char	*str)
+int	check_ber_format(char *str)
 {
 	size_t	size;
 
@@ -57,4 +57,17 @@ void	free_sprite(t_so_long *so_long)
 		mlx_destroy_image(so_long -> mlx, so_long -> sprite.collectible);
 	if (so_long -> sprite.exit)
 		mlx_destroy_image(so_long -> mlx, so_long -> sprite.exit);
+}
+
+void	create_game_window(t_so_long *game, int height, int width)
+{
+	if (game ->mlx == NULL)
+		return (0);
+	game ->window = mlx_new_window(game -> mlx, width * 80,
+			height * 80, "So_Long");
+	if (game -> window == NULL)
+	{
+		free(game ->mlx);
+		return (0);
+	}
 }

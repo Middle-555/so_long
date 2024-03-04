@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/01 13:23:13 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/02 13:02:18 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SO_LONG_H
 # define WALL '1'
 # define FLOOR '0'
-# define START 'P'
+# define PLAYER 'P'
 # define EXIT 'E'
 # define COLLECT 'C'
 
@@ -53,6 +53,7 @@ typedef struct s_map
 {
 	char	*path;
 	char	**tab;
+	char	*map;
 	int		height;
 	int		width;
 	int		fd;
@@ -71,9 +72,9 @@ typedef struct s_sprites
 typedef struct s_so_long
 {
 	t_sprites	sprite;
-	t_sprites	map;
+	t_map		map;
 	void		*mlx;
-	void		*win;
+	void		*window;
 	void		*img;
 
 }	t_so_long;
