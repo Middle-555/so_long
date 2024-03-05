@@ -19,24 +19,24 @@ int	map_parser(t_map *map)
 	int		fd;
 	char	*line;
 
-	fd = open(map ->path, O_RDONLY);
+	fd = open(map->path, O_RDONLY);
 	if (fd < 0)
 		map_error("Can't find the map. Try to compile with the map.ber");
-	map ->height = 0;
-	map ->width = 0;
+	map->height = 0;
+	map->width = 0;
 	line = get_next_line(fd);
 	while (line)
 	{
-		map -> height++;
-		if (map -> height == 1)
-			map ->width = ft_size_line(line);
-		if (ft_size_line(line) != map-> width)
+		map->height++;
+		if (map->height == 1)
+			map->width = ft_size_line(line);
+		if (ft_size_line(line) != map->width)
 			map_error("The map need to be rectangular.");
 		line = get_next_line(fd);
 	}
-	close (fd);
-	free (line);
-	if (map ->height == 0)
+	close(fd);
+	free(line);
+	if (map->height == 0)
 		map_error("The map is empty. Please put a valid map.");
 	return (1);
 }
@@ -74,10 +74,10 @@ int	check_wall_error(t_map *map)
 	char	**current_row;
 	char	**end_row;
 
-	first_row = map -> tab[0];
-	last_row = map -> tab[map -> height - 1];
-	current_row = map ->tab + 1;
-	end_row = map -> tab + map ->height - 1;
+	first_row = map->tab[0];
+	last_row = map->tab[map->height - 1];
+	current_row = map->tab + 1;
+	end_row = map->tab + map->height - 1;
 	while (*first_row && *last_row)
 	{
 		if (*first_row != WALL || *last_row != WALL)
@@ -87,7 +87,7 @@ int	check_wall_error(t_map *map)
 	}
 	while (current_row < end_row)
 	{
-		if (**current_row != WALL || *(*current_row + map ->width - 1) != WALL)
+		if (**current_row != WALL || *(*current_row + map->width - 1) != WALL)
 			return (0);
 		current_row++;
 	}
