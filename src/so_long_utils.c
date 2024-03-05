@@ -71,8 +71,8 @@ void	create_game_window(t_so_long *game, int height, int width)
 {
 	if (game->mlx == NULL)
 		return (0);
-	game->window = mlx_new_window(game->mlx, width * 80, height * 80, "kpourcel
-			- So_long");
+	game->window = mlx_new_window(game->mlx, width * 80, height * 80,
+			"kpourcel - So_long");
 	if (game->window == NULL)
 	{
 		free(game->mlx);
