@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 23:16:03 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/04 18:07:26 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/05 11:38:40 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,7 @@ void	put_sprite_on_screen(t_so_long *game, int height, int width)
 	else if (game->map.tab[height][width] == PLAYER)
 		mlx_put_image_to_window(game->mlx, game->window,
 			game->sprite.player, width * 50, height * 50);
+	else
+		mlx_put_image_to_window(game-> mlx, game-> window,
+			game->sprite.ground, width * 50, height * 50);
 }

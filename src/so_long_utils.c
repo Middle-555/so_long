@@ -43,7 +43,7 @@ void	map_error(char	*str)
 	exit(1);
 }
 
-void	free_sprite(t_so_long *game)
+void	free_game(t_so_long *game)
 {
 	if (!game)
 		return (NULL);
@@ -57,6 +57,14 @@ void	free_sprite(t_so_long *game)
 		mlx_destroy_image(game -> mlx, game -> sprite.collectible);
 	if (game -> sprite.exit)
 		mlx_destroy_image(game -> mlx, game -> sprite.exit);
+	if (game -> mlx && game -> window)
+		mlx_destroy_window(game -> mlx, game -> window);
+	if (game -> mlx)
+		mlx_destroy_display(game -> mlx);
+	if (game -> mlx)
+		free(game -> mlx);
+	if (game)
+		free(game);
 }
 
 void	create_game_window(t_so_long *game, int height, int width)

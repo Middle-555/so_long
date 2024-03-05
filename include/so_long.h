@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/04 18:19:00 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/04 20:06:41 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,12 +83,16 @@ typedef struct s_sprites
 
 typedef struct s_so_long
 {
+	t_player_position	player_pos;
 	t_sprites	sprite;
 	t_map		map;
 	void		*mlx;
 	void		*window;
 	void		*img;
-
+	int	count_step;
+	int	count_player;
+	int	counter_collectible;
+	int	count_exit;
 }	t_so_long;
 
 // Check_error
