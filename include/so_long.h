@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/04 20:06:41 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/05 13:25:43 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef struct s_position
 typedef struct s_player_position
 {
 	t_position	p_position;
+	t_position	start_position;
 	void		*player;
 }	t_player_position;
 
@@ -108,7 +109,7 @@ int		check_wall_error(t_map *map);
 size_t	ft_size_line(char *str);
 int		check_ber_format(char *str);
 void	map_error(char	*str);
-void	free_sprite(t_so_long *game);
+void	free_game(t_so_long *game);
 void	create_game_window(t_so_long *game, int height, int width);
 // Sprites_initialisation.c
 t_sprites	init_sprites(void *mlx, t_so_long *game);
