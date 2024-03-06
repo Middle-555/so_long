@@ -2,37 +2,44 @@
 
 int	main(int argc, char **argv)
 {
-	t_so_long	game;
+	t_map	map;
 
+	// Vérification du nombre d'arguments
 	if (argc != 2)
 	{
-		ft_printf("Usage: %s [map.ber]\n", argv[0]);
+		ft_printf("Usage: %s [map_file]\n", argv[0]);
 		return (1);
 	}
-	// Initialisation de la carte
-	game.map.path = argv[1];
-	if (!map_parser(&(game.map)))
+	// Initialisation de la structure t_map
+	map.path = argv[1];
+	map.height = 0;
+	map.width = 0;
+	// Vérification et parsing de la carte
+	if (map_parser(&map))
 		return (1);
-	// Initialisation du jeu
-	game.mlx = mlx_init();
-	if (!game.mlx)
+	// Allocation de la mémoire pour le tableau de la carte
+	if (tab_filler(&map, &map.map))
 	{
-		ft_printf("Error: Failed to initialize mlx.\n");
+		ft_printf("Error: Memory allocation failed.\n");
 		return (1);
 	}
-	game.sprite = init_sprites(game.mlx);
-	if (!game.sprite.player || !game.sprite.exit || !game.sprite.collectible
-		|| !game.sprite.wall || !game.sprite.ground)
+	// Vérification des murs de la carte
+	if (check_wall_error(&map))
 	{
-		ft_printf("Error: Failed to load sprites.\n");
+		ft_printf("Error: Wall check failed.\n");
 		return (1);
 	}
-	// create_game_window(&game, game.map.height, game.map.width);
-	// Affichage de la carte initiale
-	put_sprite_on_screen(&game, 50, 50);
-	// Boucle principale du jeu
-	mlx_loop(game.mlx);
-	// Libération de la mémoire
-	free_game(&game);
+	ft_printf("Map dimensions: %d x %d\n", map.height, map.width);
+	ft_printf("Map data:\n");
+	for (int i = 0; i < map.height; i++)
+	{
+		ft_printf("%s\n", map.tab[i]);
+	}
+	// Libération de la mémoire allouée pour la carte
+	for (int i = 0; i < map.height; i++)
+	{
+		free(map.tab[i]);
+	}
+	free(map.tab);
 	return (0);
 }

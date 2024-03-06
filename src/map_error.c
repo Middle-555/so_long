@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:04:39 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/06 01:55:27 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/06 14:26:55 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ int	map_parser(t_map *map)
 	return (0);
 }
 
-
 // Fill our tab with the map infos.
 int	tab_filler(t_map *map, char **map_data)
 {
@@ -62,8 +61,8 @@ int	tab_filler(t_map *map, char **map_data)
 		map->tab[i] = (char *)malloc(sizeof(char) * (map->width + 1));
 		if (!map->tab[i])
 			return (1);
-		ft_strlcpy(map->tab[i], *data_ptr, map->width);
-		map->tab[i][map->width] = '\0';
+		ft_strlcpy(map->tab[i], *data_ptr, map->width + 1);
+			// On copie map->width + 1 pour inclure le caractère nul à la fin.
 		data_ptr++;
 		i++;
 	}

@@ -6,10 +6,9 @@
 #    By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/05 18:19:59 by kpourcel          #+#    #+#              #
-#    Updated: 2024/03/06 11:11:56 by kpourcel         ###   ########.fr        #
+#    Updated: 2024/03/06 14:18:59 by kpourcel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 # Name of the program
 NAME	=	so_long
