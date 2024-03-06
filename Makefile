@@ -6,9 +6,10 @@
 #    By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/05 18:19:59 by kpourcel          #+#    #+#              #
-#    Updated: 2024/03/06 10:39:07 by kpourcel         ###   ########.fr        #
+#    Updated: 2024/03/06 11:11:56 by kpourcel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
 
 # Name of the program
 NAME	=	so_long
@@ -81,4 +82,3 @@ fclean		:	clean
 	@echo "\033[0;32mDone -> ✅\033[0m\n"
 
 re		:	fclean all
-
