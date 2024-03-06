@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:04:39 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/01 16:08:05 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/06 01:55:27 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,29 @@ int	map_parser(t_map *map)
 	fd = open(map->path, O_RDONLY);
 	if (fd < 0)
 		map_error("Can't find the map. Try to compile with the map.ber");
+	ft_printf("Opened map file successfully.\n");
 	map->height = 0;
 	map->width = 0;
-	line = get_next_line(fd);
-	while (line)
+	while (1)
 	{
+		line = get_next_line(fd);
+		if (!line)
+			break ;
+		ft_printf("Read line: %s\n", line);
 		map->height++;
 		if (map->height == 1)
 			map->width = ft_size_line(line);
-		if (ft_size_line(line) != map->width)
-			map_error("The map need to be rectangular.");
-		line = get_next_line(fd);
+		else if (ft_size_line(line) != (size_t)map->width)
+			map_error("The map needs to be rectangular.");
+		free(line);
 	}
+	ft_printf("Finished reading map.\n");
 	close(fd);
-	free(line);
 	if (map->height == 0)
-		map_error("The map is empty. Please put a valid map.");
-	return (1);
+		map_error("The map is empty. Please provide a valid map.");
+	return (0);
 }
+
 
 // Fill our tab with the map infos.
 int	tab_filler(t_map *map, char **map_data)
@@ -56,13 +61,13 @@ int	tab_filler(t_map *map, char **map_data)
 	{
 		map->tab[i] = (char *)malloc(sizeof(char) * (map->width + 1));
 		if (!map->tab[i])
-			return (0);
-		ft_strncpy(map->tab[i], *data_ptr, map->width);
+			return (1);
+		ft_strlcpy(map->tab[i], *data_ptr, map->width);
 		map->tab[i][map->width] = '\0';
 		data_ptr++;
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 // Check that the map is surrounded by walls
@@ -81,15 +86,15 @@ int	check_wall_error(t_map *map)
 	while (*first_row && *last_row)
 	{
 		if (*first_row != WALL || *last_row != WALL)
-			return (0);
+			return (1);
 		first_row++;
 		last_row++;
 	}
 	while (current_row < end_row)
 	{
 		if (**current_row != WALL || *(*current_row + map->width - 1) != WALL)
-			return (0);
+			return (1);
 		current_row++;
 	}
-	return (1);
+	return (0);
 }

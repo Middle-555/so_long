@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 12:02:20 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/05 15:40:05 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/05 23:23:42 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,14 @@ int	player_move_up(t_so_long *game)
 	int		j;
 
 	map = &(game->map);
-	i = -1;
-	while (++i < map->height)
+	i = game->player_pos.p_position.y;
+	j = game->player_pos.p_position.x;
+	if (i - 1 >= 0 && map->tab[i - 1][j] != WALL)
 	{
-		j = -1;
-		while (++j < map->width)
-		{
-			if (map->tab[i][j] == PLAYER && i - 1 >= 0 && map->tab[i
-				- 1][j] != WALL)
-			{
-				map->tab[i][j] = GROUND;
-				map->tab[i - 1][j] = PLAYER;
-				game->player_pos.p_position.y = i - 1;
-				return (1);
-			}
-		}
+		map->tab[i][j] = GROUND;
+		map->tab[i - 1][j] = PLAYER;
+		game->player_pos.p_position.y = i - 1;
+		return (1);
 	}
 	return (0);
 }
@@ -45,24 +38,18 @@ int	player_move_down(t_so_long *game)
 	int		j;
 
 	map = &(game->map);
-	i = map->height;
-	while (--i >= 0)
+	i = game->player_pos.p_position.y;
+	j = game->player_pos.p_position.x;
+	if (i + 1 < map->height && map->tab[i + 1][j] != WALL)
 	{
-		j = -1;
-		while (++j < map->width)
-		{
-			if (map->tab[i][j] == PLAYER && i + 1 < map->height && map->tab[i
-				+ 1][j] != WALL)
-			{
-				map->tab[i][j] = GROUND;
-				map->tab[i + 1][j] = PLAYER;
-				game->player_pos.p_position.y = i + 1;
-				return (1);
-			}
-		}
+		map->tab[i][j] = GROUND;
+		map->tab[i + 1][j] = PLAYER;
+		game->player_pos.p_position.y = i + 1;
+		return (1);
 	}
 	return (0);
 }
+
 
 int	player_move_right(t_so_long *game)
 {
@@ -71,21 +58,14 @@ int	player_move_right(t_so_long *game)
 	int		j;
 
 	map = &(game->map);
-	i = -1;
-	while (++i < map->height)
+	i = game->player_pos.p_position.y;
+	j = game->player_pos.p_position.x;
+	if (j + 1 < map->width && map->tab[i][j + 1] != WALL)
 	{
-		j = -1;
-		while (++j < map->width)
-		{
-			if (map->tab[i][j] == PLAYER && j + 1 < map->width && map->tab[i][j
-				+ 1] != WALL)
-			{
-				map->tab[i][j] = GROUND;
-				map->tab[i][j + 1] = PLAYER;
-				game->player_pos.p_position.x = j + 1;
-				return (1);
-			}
-		}
+		map->tab[i][j] = GROUND;
+		map->tab[i][j + 1] = PLAYER;
+		game->player_pos.p_position.x = j + 1;
+		return (1);
 	}
 	return (0);
 }
@@ -97,21 +77,14 @@ int	player_move_left(t_so_long *game)
 	int		j;
 
 	map = &(game->map);
-	i = -1;
-	while (++i < map->height)
+	i = game->player_pos.p_position.y;
+	j = game->player_pos.p_position.x;
+	if (j - 1 >= 0 && map->tab[i][j - 1] != WALL)
 	{
-		j = map->width;
-		while (--j >= 0)
-		{
-			if (map->tab[i][j] == PLAYER && j - 1 >= 0 && map->tab[i][j
-				- 1] != WALL)
-			{
-				map->tab[i][j] = GROUND;
-				map->tab[i][j - 1] = PLAYER;
-				game->player_pos.p_position.x = j - 1;
-				return (1);
-			}
-		}
+		map->tab[i][j] = GROUND;
+		map->tab[i][j - 1] = PLAYER;
+		game->player_pos.p_position.x = j - 1;
+		return (1);
 	}
 	return (0);
 }

@@ -6,13 +6,13 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 23:16:03 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/05 11:50:09 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/06 01:13:03 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-t_sprites	init_sprites(void *mlx, t_so_long *game)
+t_sprites	init_sprites(void *mlx)
 {
 	t_sprites	sprite;
 	int			width;
@@ -43,19 +43,22 @@ t_sprites	init_sprites(void *mlx, t_so_long *game)
 
 void	put_sprite_on_screen(t_so_long *game, int height, int width)
 {
+	if (height < 0 || height >= game->map.height || width < 0
+		|| width >= game->map.width)
+		return ;
 	if (game->map.tab[height][width] == WALL)
 		mlx_put_image_to_window(game->mlx, game->window, game->sprite.wall,
-			width * 50, height * 50);
+			width * 30, height * 30);
 	else if (game->map.tab[height][width] == COLLECT)
 		mlx_put_image_to_window(game->mlx, game->window,
-			game->sprite.collectible, width * 50, height * 50);
+			game->sprite.collectible, width * 30, height * 30);
 	else if (game->map.tab[height][width] == EXIT)
 		mlx_put_image_to_window(game->mlx, game->window, game->sprite.exit,
-			width * 50, height * 50);
+			width * 30, height * 30);
 	else if (game->map.tab[height][width] == PLAYER)
 		mlx_put_image_to_window(game->mlx, game->window, game->sprite.player,
-			width * 50, height * 50);
+			width * 30, height * 30);
 	else
 		mlx_put_image_to_window(game->mlx, game->window, game->sprite.ground,
-			width * 50, height * 50);
+			width * 30, height * 30);
 }

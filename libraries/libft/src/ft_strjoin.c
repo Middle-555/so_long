@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 12:35:35 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/02/29 11:49:56 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/06 01:20:35 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strjoin(char *s1, char *s2)
 	size_t	k;
 	char	*s3;
 
+	if (!s1 || !s2)
+		return (NULL);
 	s3 = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 2));
 	if (!s3)
 		return (NULL);
@@ -33,9 +35,8 @@ char	*ft_strjoin(char *s1, char *s2)
 		s3[i + k] = s2[k];
 		k++;
 	}
-	s3[i + k] = '\n';
-	s3[i + k + 1] = '\0';
-	free (s1);
-	free (s2);
+	s3[i + k] = '\0';
+	free(s1);
+	free(s2);
 	return (s3);
 }

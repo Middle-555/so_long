@@ -6,71 +6,78 @@
 #    By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/05 18:19:59 by kpourcel          #+#    #+#              #
-#    Updated: 2024/03/05 18:51:03 by kpourcel         ###   ########.fr        #
+#    Updated: 2024/03/05 21:48:10 by kpourcel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := so_long
+# Name of the program
+NAME	=	so_long
 
-CC := gcc
+# Flags
+CC		=	gcc
+CFLAGS		=	-Wall -Werror -Wextra
+LM		=	-lm
+MFLAGS		=	-L$(MLX_DIR) -lmlx -L/usr/X11/lib -lX11 -lXext -framework OpenGL -framework AppKit
+MLX_FLAGS	=	-lmlx -framework OpenGL -framework AppKit
 
-CFLAGS := -Wall -Wextra -Werror -Iheaders/
+# Directories
+SRC_DIR		=	src/
+OBJ_DIR		=	obj/
+LIB_DIR		=	libraries/
+MLX_DIR		=	mlx/
 
-# Universal compilation 
-ifeq ($(shell uname), Linux)
-    INCLUDES = -I/usr/include -Imlx
-else
-    INCLUDES = -I/opt/X11/include -Imlx
-endif
 
-MLX_DIR = mlx
-MLX_LIB = $(MLX_DIR)/libmlx$(UNAME).a
-ifeq ($(shell uname), Linux)
-    MLX_FLAGS = -Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11
-else
-    MLX_FLAGS = -framework OpenGL -framework AppKit
-endif
+# .c and .o files
+SRC		=	$(wildcard $(SRC_DIR)*.c)
+OBJ		=	$(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRC))
 
-# Include libraries
-LIBRARIES_DIR = ./libraries
-LIBRARIES_MAKEFILE = $(LIBRARIES_DIR)/Makefile
+# .a files
+LIBRARIES    =	$(LIB_DIR)libraries.a
+MLX        =	$(MLX_DIR)libmlx.a
 
-# Source files
-SRCS := src/main.c \
-        src/so_long.c \
-        src/check_error.c \
-        src/map_error.c \
-        src/so_long_utils.c \
-        src/move.c \
-        src/input.c \
-        src/sprites_initialisation.c
+# The main rule
+all		:	$(NAME)
 
-# Object files
-OBJS := $(SRCS:.c=.o)
+# The name rule
+$(NAME)		:	$(OBJ) $(LIBRARIES) $(MLX)
+	@echo "\033[0;33mCompiling the whole project -> ⏳\033[0m"
+	@$(CC) $(OBJ) $(LIBRARIES) $(MLX) $(MFLAGS) $(MLX_FLAGS) -o $@
+	@echo "\033[0;32mProject successfuly compiled -> ✅\033[0m\n"
 
-all:  $(MLX_LIB) $(NAME) libraries
+# The LIBRARIES rule
+$(LIBRARIES)	:	$(LIB_DIR)
+	@echo "\033[0;33mCompiling my LIBRARIES -> ⏳\033[0m"
+	@make all -sC $<
+	@echo "\033[0;32mLIBRARIES successfuly compiled -> ✅\033[0m\n"
 
-$(OBJS): $(SRCS)
-	$(CC) $(CFLAGS) -c $(SRCS) -o $(OBJS)  $(INCLUDES)
+# The mlx rule
+$(MLX)		:	$(MLX_DIR)
+	@echo "\033[0;33mCompiling minilibx -> ⏳\033[0m"
+	@make all -sC $< > /dev/null 2>&1
+	@echo "\033[0;32mMinilibx successfuly compiled -> ✅\033[0m\n"
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX_FLAGS)
+# Compile .c to .o files
+$(OBJ_DIR)%.o	:	$(SRC_DIR)%.c | $(OBJ_DIR)
+	@echo "\033[0;33mCompiling project src -> ⏳\033[0m"
+	@$(CC) $(CFLAGS) -c $< -o $@
+	@echo "\033[0;32mSrc's project successfuly compiled -> ✅\033[0m\n"
 
-$(LIBRARIES_MAKEFILE):
-	make -C $(LIBRARIES_DIR)
+# Create the obj directory
+$(OBJ_DIR)	:
+	@mkdir -p $@
 
-libraries: $(LIBRARIES_MAKEFILE)
+# Clean, fclean and re rules
+clean		:
+	@echo "\033[0;31mCleaning obj files -> 🗑️\033[0m"
+	@rm -rf $(OBJ_DIR)
+	@make clean -sC $(LIB_DIR)
+	@make clean -sC $(MLX_DIR) > /dev/null 2>&1
+	@echo "\033[0;32mDone -> ✅\033[0m\n"
 
-$(MLX_LIB):
-	make -C $(MLX_DIR)
+fclean		:	clean
+	@echo "\033[0;31mCleaning program -> 🗑️\033[0m"
+	@rm -rf $(NAME)
+	@make fclean -sC $(LIB_DIR)
+	@echo "\033[0;32mDone -> ✅\033[0m\n"
 
-clean:
-	make clean -C $(LIBRARIES_DIR)
-	make clean -C $(MLX_DIR)
-	rm -rf $(OBJS)
-
-fclean: clean
-	make fclean -C $(LIBRARIES_DIR)
-	rm -f $(NAME)
-
-re: fclean all
+re		:	fclean all

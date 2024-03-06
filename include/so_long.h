@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/05 15:44:27 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/06 01:17:23 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,26 +97,27 @@ typedef struct s_so_long
 // Check_error
 //
 // Input
-int						input_handler(int keycode, t_so_long *game);
+void					input_handler(int keycode, t_so_long *game);
 // Move.c
 int						player_move_up(t_so_long *game);
 int						player_move_down(t_so_long *game);
-int						player_right(t_so_long *game);
-int						player_left(t_so_long *game);
+int						player_move_right(t_so_long *game);
+int						player_move_left(t_so_long *game);
 // Map_error
 int						map_parser(t_map *map);
 int						tab_filler(t_map *map, char **map_data);
 int						check_wall_error(t_map *map);
 // So_long.c
+void					create_game_window(t_so_long *game, int height,
+							int width);
 // So_long_utils.c
 size_t					ft_size_line(char *str);
 int						check_ber_format(char *str);
 void					map_error(char *str);
 void					free_game(t_so_long *game);
-void					create_game_window(t_so_long *game, int height,
-							int width);
+char					*ft_strjoin_n(char *s1, char *s2);
 // Sprites_initialisation.c
-t_sprites				init_sprites(void *mlx, t_so_long *game);
+t_sprites				init_sprites(void *mlx);
 void					put_sprite_on_screen(t_so_long *game, int height,
 							int width);
 

@@ -17,7 +17,7 @@ size_t	ft_size_line(char *str)
 	size_t	i;
 
 	i = 0;
-	while (str[i] && str[i] != "\n")
+	while (str[i] && str[i] != '\n')
 		i++;
 	return (i);
 }
@@ -31,9 +31,9 @@ int	check_ber_format(char *str)
 		&& str[size - 3] == '.')
 	{
 		map_error("Please use a map with the .ber extension");
-		return (0);
+		return (1);
 	}
-	return (1);
+	return (0);
 }
 
 void	map_error(char *str)
@@ -46,7 +46,7 @@ void	map_error(char *str)
 void	free_game(t_so_long *game)
 {
 	if (!game)
-		return (NULL);
+		return ;
 	if (game->sprite.player)
 		mlx_destroy_image(game->mlx, game->sprite.player);
 	if (game->sprite.wall)
@@ -67,15 +67,30 @@ void	free_game(t_so_long *game)
 		free(game);
 }
 
-void	create_game_window(t_so_long *game, int height, int width)
+char	*ft_strjoin_n(char *s1, char *s2)
 {
-	if (game->mlx == NULL)
-		return (0);
-	game->window = mlx_new_window(game->mlx, width * 80, height * 80,
-			"kpourcel - So_long");
-	if (game->window == NULL)
+	size_t	i;
+	size_t	k;
+	char	*s3;
+
+	s3 = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 2));
+	if (!s3)
+		return (NULL);
+	i = 0;
+	while (s1[i])
 	{
-		free(game->mlx);
-		return (0);
+		s3[i] = s1[i];
+		i++;
 	}
+	k = 0;
+	while (s2[k])
+	{
+		s3[i + k] = s2[k];
+		k++;
+	}
+	s3[i + k] = '\n';
+	s3[i + k + 1] = '\0';
+	free(s1);
+	free(s2);
+	return (s3);
 }
