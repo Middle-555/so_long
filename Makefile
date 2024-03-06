@@ -6,7 +6,7 @@
 #    By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/05 18:19:59 by kpourcel          #+#    #+#              #
-#    Updated: 2024/03/05 21:48:10 by kpourcel         ###   ########.fr        #
+#    Updated: 2024/03/06 10:39:07 by kpourcel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,8 @@ NAME	=	so_long
 CC		=	gcc
 CFLAGS		=	-Wall -Werror -Wextra
 LM		=	-lm
-MFLAGS		=	-L$(MLX_DIR) -lmlx -L/usr/X11/lib -lX11 -lXext -framework OpenGL -framework AppKit
-MLX_FLAGS	=	-lmlx -framework OpenGL -framework AppKit
+MFLAGS          =       -L$(MLX_DIR) -lmlx -L/usr/X11/lib -lX11 -lXext -lm
+MLX_FLAGS       =       -lmlx -lX11 -lXext -lm
 
 # Directories
 SRC_DIR		=	src/
@@ -81,3 +81,4 @@ fclean		:	clean
 	@echo "\033[0;32mDone -> ✅\033[0m\n"
 
 re		:	fclean all
+

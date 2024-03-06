@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:04:50 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/02/19 16:42:48 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/06 10:40:57 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,19 +51,6 @@ char	*ft_strjoin(char *s1, char *s2)
 	s3[i + k] = '\0';
 	free (s1);
 	return (s3);
-}
-
-/* Donne la taille d'une chaine de caractère */
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i] != '\0')
-		i++;
-	return (i);
 }
 
 /* Permet de rajouter le \0 que l'on recherchera plus tard */

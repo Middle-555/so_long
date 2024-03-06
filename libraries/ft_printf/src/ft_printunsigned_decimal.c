@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 11:08:08 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/02/19 16:10:19 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/06 10:32:24 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_printunsigned_decimal(unsigned int nb)
 	int		count;
 
 	count = 0;
-	if (nb >= 0 && nb <= 9)
+	if (nb >= '0' && nb <= '9')
 	{
 		count += ft_putchar(nb + '0');
 	}
