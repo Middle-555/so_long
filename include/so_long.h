@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/06 13:25:33 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/06 15:07:14 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,9 @@ int						player_move_right(t_so_long *game);
 int						player_move_left(t_so_long *game);
 // Map_error
 int						map_parser(t_map *map);
-int						tab_filler(t_map *map, char **map_data);
+//int						tab_filler(t_map *map, char **map_data);
+void	fill_map(t_so_long *game, const char *path);
+void	alloc_map(t_so_long *game);
 int						check_wall_error(t_map *map);
 // So_long.c
 void					create_game_window(t_so_long *game, int height,

@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:04:39 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/06 14:26:55 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/06 15:06:31 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int	map_parser(t_map *map)
 	return (0);
 }
 
+/*
 // Fill our tab with the map infos.
 int	tab_filler(t_map *map, char **map_data)
 {
@@ -67,6 +68,48 @@ int	tab_filler(t_map *map, char **map_data)
 		i++;
 	}
 	return (0);
+}
+
+*/
+
+void	alloc_map(t_so_long *game)
+{
+	int	i;
+
+	i = 0;
+	game->map.tab = (char **)malloc(sizeof(char *) * (game->map.height + 1));
+	if (game->map.tab == NULL)
+		return ;
+	while (i < game->map.height)
+	{
+		game->map.tab[i] = (char *)malloc(sizeof(char) * (game->map.width + 1));
+		if (game->map.tab[i] == NULL)
+			return ;
+		i++;
+	}
+	game->map.tab[game->map.height] = NULL;
+}
+
+void	fill_map(t_so_long *game, const char *path)
+{
+	int		fd;
+	char	*line;
+	int		i;
+
+	i = 0;
+	fd = open(path, O_RDONLY);
+	if (fd == -1)
+		return ;
+	while (1)
+	{
+		line = get_next_line(fd);
+		if (line == NULL)
+			break ;
+		ft_strlcpy(game->map.tab[i], line, game->map.width + 1);
+		free(line);
+		i++;
+	}
+	close(fd);
 }
 
 // Check that the map is surrounded by walls
