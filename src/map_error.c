@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:04:39 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/06 15:06:31 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/06 18:20:05 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,4 +139,34 @@ int	check_wall_error(t_map *map)
 		current_row++;
 	}
 	return (0);
+}
+
+void read_map(t_so_long *game, const char *file)
+{
+    int fd;
+    char *line;
+
+    game->map.width = 0;
+    game->map.height = 0;
+    fd = open(file, O_RDONLY);
+    if (fd == -1)
+    {
+        // Gestion de l'erreur d'ouverture du fichier
+        // Vous pouvez ajouter ici une logique pour gérer l'erreur
+        return;
+    }
+    while (1)
+    {
+        line = get_next_line(fd);
+        if (line == NULL)
+            break;
+        if (game->map.height == 0)
+        {
+            // Calcul de la largeur de la carte
+            game->map.width = ft_strlen(line);
+        }
+        game->map.height++;
+        free(line);
+    }
+    close(fd);
 }

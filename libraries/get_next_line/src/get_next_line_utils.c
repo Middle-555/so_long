@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:04:50 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/06 10:40:57 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/06 15:11:00 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	*ft_strjoin(char *s1, char *s2)
 }
 
 /* Permet de rajouter le \0 que l'on recherchera plus tard */
-void	ft_bzero(void *s, size_t n)
+/*void	ft_bzero(void *s, size_t n)
 {
 	size_t	i;
 	char	*s1;
@@ -67,7 +67,7 @@ void	ft_bzero(void *s, size_t n)
 		i++;
 	}
 }
-
+*/
 /* Malloc + bzero*/
 
 void	*ft_calloc(size_t nbr, size_t size)
