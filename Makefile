@@ -6,7 +6,7 @@
 #    By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/06 18:01:15 by kpourcel          #+#    #+#              #
-#    Updated: 2024/03/12 16:14:48 by kpourcel         ###   ########.fr        #
+#    Updated: 2024/03/12 17:35:42 by kpourcel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME    =    so_short
 
 # Flags
 CC		=	gcc
-CFLAGS		=	-Wall -Werror -Wextra
+CFLAGS		=	-Wall -Werror -Wextra -g
 LM		=	-lm
 MFLAGS		=	-L/usr/X11R6/lib -lX11 -lXext
 

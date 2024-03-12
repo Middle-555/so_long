@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
-
+/*
 size_t	ft_size_line(char *str)
 {
 	size_t	i;
@@ -21,6 +21,7 @@ size_t	ft_size_line(char *str)
 		i++;
 	return (i);
 }
+*/
 
 int	check_ber_format(char *str)
 {
@@ -43,8 +44,27 @@ void	map_error(char *str)
 	exit(1);
 }
 
+void	free_tab(t_map *map)
+{
+	int	i;
+
+	i = 0;
+
+	if (map && map->tab)
+	{
+		while (map->tab[i])
+		{
+			free(map->tab[i]);
+			i++;
+		}
+	}
+	free (map->tab);
+}
+
 void	free_game(t_so_long *game)
 {
+	//t_map	*map;
+
 	if (!game)
 		return ;
 	if (game->sprite.player)
@@ -63,8 +83,8 @@ void	free_game(t_so_long *game)
 		mlx_destroy_display(game->mlx);
 	if (game->mlx)
 		free(game->mlx);
-	if (game)
-		free(game);
+	/*if (game->map)
+		free_tab(game->map);*/
 }
 
 char	*ft_strjoin_n(char *s1, char *s2)
@@ -94,3 +114,23 @@ char	*ft_strjoin_n(char *s1, char *s2)
 	free(s2);
 	return (s3);
 }
+
+int	ft_total_len(char *path)
+{
+	int		fd;
+	int		i;
+	char	c;
+
+	c = 'c';
+	i = 0;
+	fd = open(path, O_RDONLY);
+	if (fd < 0)
+		return (0);
+	while (read(fd, &c, 1) != '\0')
+	{
+		i++;
+	}
+	close (fd);
+	return (i);
+}
+

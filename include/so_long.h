@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/12 16:04:26 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/12 19:08:01 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,10 @@ typedef struct s_map
 {
 	char				*path;
 	char				**tab;
+	char				*line;
+	int					fd;
 	int					height;
 	int					width;
-	int					fd;
 }						t_map;
 
 typedef struct s_sprites
@@ -113,6 +114,9 @@ char					*ft_strjoin_n(char *s1, char *s2);
 t_sprites				init_sprites(void *mlx);
 void					put_sprite_on_screen(t_so_long *game, int height,
 							int width);
-
+int						ft_total_len(char *path);
+int						map_stock(t_map *map);
+void					free_tab(t_map *map);
+int						not_rectangular(t_map *map);
 
 #endif // SO_LONG_H
