@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/11 16:42:18 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/12 16:04:26 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,13 @@
 # include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
+
+# ifdef __linux__
+#  include <X11/X.h>
+#  include <X11/keysym.h>
+# elif __APPLE__
+#  include <ApplicationServices/ApplicationServices.h>
+# endif
 
 // Keycode definitions
 # define KEY_ESC 65307
@@ -107,11 +114,5 @@ t_sprites				init_sprites(void *mlx);
 void					put_sprite_on_screen(t_so_long *game, int height,
 							int width);
 
-# ifdef __linux__
-#  include <X11/X.h>
-#  include <X11/keysym.h>
-# elif __APPLE__
-#  include <ApplicationServices/ApplicationServices.h>
-# endif
 
 #endif // SO_LONG_H

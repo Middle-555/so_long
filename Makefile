@@ -6,41 +6,41 @@
 #    By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/06 18:01:15 by kpourcel          #+#    #+#              #
-#    Updated: 2024/03/07 09:44:12 by kpourcel         ###   ########.fr        #
+#    Updated: 2024/03/12 16:14:48 by kpourcel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 # Name of the program
-NAME    =    so_long
+NAME    =    so_short
 
 # Flags
 CC		=	gcc
 CFLAGS		=	-Wall -Werror -Wextra
 LM		=	-lm
-MFLAGS		=	-Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11
+MFLAGS		=	-L/usr/X11R6/lib -lX11 -lXext
 
 # Directories
-SRC_DIR    =    src/
-OBJ_DIR    =    obj/
-LIB_DIR    =    libraries/
-MLX_DIR    =    minilibx-linux/
+SRC_DIR		=	src/
+OBJ_DIR		=	obj/
+LIB_DIR		=	libraries/
+MLX_DIR		=	minilibx-linux/
 
 # .c and .o files
-SRC        =    $(wildcard $(SRC_DIR)*.c)
-OBJ        =    $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRC))
+SRC		=	$(wildcard $(SRC_DIR)*.c)
+OBJ		=	$(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRC))
 
 # .a files
-LIBFT    =    $(LIB_DIR)libraries.a
-MLX        =    $(MLX_DIR)libmlx.a
+LIBFT		=	$(LIB_DIR)libraries.a
+MLX		=	$(MLX_DIR)libmlx.a
 
 # The main rule
-all                :    $(NAME)
+all                :	$(NAME)
 
 # The name rule
 $(NAME)            :    $(OBJ) $(LIBFT) $(MLX)
 	@echo "\033[0;33mCompiling the whole project -> ⏳\033[0m"
-	@$(CC) $(OBJ) $(LIBFT) $(MLX) $(MFLAGS) -o $@
+	@$(CC) $(OBJ) $(LIBFT) $(MLX) $(MFLAGS) -o $@ -I include/
 	@echo "\033[0;32mProject successfuly compiled -> ✅\033[0m\n"
 
 # The libft rule
