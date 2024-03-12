@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:04:39 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/12 19:08:50 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/12 19:28:28 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ int	not_rectangular(t_map *map)
 	while (map->tab[i])
 	{
 		if (len != ft_strlen(map->tab[i]))
-			map_error("The map is need to be rectangular.");
+			map_error("The map need to have the same height and width.");
 		i++;
 	}
 	if (i != len)
-		map_error("The map is need to be rectangular.");
+		map_error("The map need to have the same height and width.");
 	return (0);
 }
