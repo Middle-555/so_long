@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:04:39 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/06 18:20:05 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/11 16:31:14 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	tab_filler(t_map *map, char **map_data)
 }
 
 */
-
+/*
 void	alloc_map(t_so_long *game)
 {
 	int	i;
@@ -170,3 +170,4 @@ void read_map(t_so_long *game, const char *file)
     }
     close(fd);
 }
+*/

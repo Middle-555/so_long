@@ -6,7 +6,7 @@
 #    By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/06 18:01:15 by kpourcel          #+#    #+#              #
-#    Updated: 2024/03/06 18:09:55 by kpourcel         ###   ########.fr        #
+#    Updated: 2024/03/07 09:44:12 by kpourcel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,9 @@ NAME    =    so_long
 
 # Flags
 CC		=	gcc
-CFLAGS		=	-Wall -Werror -Wextra $(X11_INCLUDE)
+CFLAGS		=	-Wall -Werror -Wextra
 LM		=	-lm
-MFLAGS		=	-L/opt/X11/lib -lX11 -lXext
-X11_INCLUDE 	=	-I/opt/X11/include
-
+MFLAGS		=	-Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11
 
 # Directories
 SRC_DIR    =    src/
