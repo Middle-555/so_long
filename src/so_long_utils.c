@@ -63,7 +63,6 @@ void	free_tab(t_map *map)
 
 void	free_game(t_so_long *game)
 {
-	//t_map	*map;
 
 	if (!game)
 		return ;
@@ -83,10 +82,10 @@ void	free_game(t_so_long *game)
 		mlx_destroy_display(game->mlx);
 	if (game->mlx)
 		free(game->mlx);
-	/*if (game->map)
-		free_tab(game->map);*/
+	if (game->map)
+		free_tab(game->map);
 }
-
+/*
 char	*ft_strjoin_n(char *s1, char *s2)
 {
 	size_t	i;
@@ -113,7 +112,7 @@ char	*ft_strjoin_n(char *s1, char *s2)
 	free(s1);
 	free(s2);
 	return (s3);
-}
+}*/
 
 int	ft_total_len(char *path)
 {

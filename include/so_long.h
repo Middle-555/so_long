@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/12 19:08:01 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/13 11:19:59 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,13 +85,13 @@ typedef struct s_so_long
 {
 	t_player_position	player_pos;
 	t_sprites			sprite;
-	t_map				map;
+	t_map				*map;
 	void				*mlx;
 	void				*window;
 	void				*img;
 	int					count_step;
 	int					count_player;
-	int					counter_collectible;
+	int					count_collectible;
 	int					count_exit;
 }						t_so_long;
 
@@ -118,5 +118,8 @@ int						ft_total_len(char *path);
 int						map_stock(t_map *map);
 void					free_tab(t_map *map);
 int						not_rectangular(t_map *map);
+int						not_enough_collectible(t_map *map);
+int						not_enough_exit(t_map *map);
+int						check_player(t_map *map);
 
 #endif // SO_LONG_H

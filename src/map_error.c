@@ -6,51 +6,99 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:04:39 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/12 19:28:28 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/13 11:26:18 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	map_stock(t_map *map)
-{
-	int		len;
-	int		i;
-	char	c;
-
-	i = 0;
-	c = 'c';
-	len = ft_total_len(map->path);
-	map->line = malloc(sizeof(char) * (len + 1));
-	if (!map->line)
-		return (0);
-	map->fd = open(map->path, O_RDONLY);
-	while (read(map->fd, &c, 1) != '\0')
-	{
-		map->line[i] = c;
-		i++;
-	}
-	map->line[i] = '\0';
-	map->tab = ft_split(map->line, '\n');
-	free(map->line);
-	close(map->fd);
-	return (0);
-}
-
 int	not_rectangular(t_map *map)
 {
-	size_t		i;
-	size_t		len;
+	size_t	i;
+	size_t	len;
 
 	i = 0;
 	len = ft_strlen(map->tab[i]);
 	while (map->tab[i])
 	{
 		if (len != ft_strlen(map->tab[i]))
-			map_error("The map need to have the same height and width.");
+			map_error("The map need to be rectangular.");
 		i++;
 	}
-	if (i != len)
-		map_error("The map need to have the same height and width.");
+	map->width = len;
+	map->height = i;
 	return (0);
 }
+
+int	not_enough_collectible(t_map *map)
+{
+	int	i;
+	int	j;
+	int	collectible;
+
+	i = 0;
+	collectible = 0;
+	while (map->tab[i])
+	{
+		j = 0;
+		while (map->tab[i][j])
+		{
+			if (map->tab[i][j] == COLLECT)
+				collectible++;
+			j++;
+		}
+		i++;
+	}
+	if (collectible < 1)
+		map_error("Please put at least 1 collectible");
+	return (0);
+}
+
+int	not_enough_exit(t_map *map)
+{
+	int	i;
+	int	j;
+	int	exit;
+
+	i = 0;
+	exit = 0;
+	while (map->tab[i])
+	{
+		j = 0;
+		while (map->tab[i][j])
+		{
+			if (map->tab[i][j] == EXIT)
+				exit++;
+			j++;
+		}
+		i++;
+	}
+	if (exit != 1)
+		map_error("Please put 1 exit.");
+	return (0);
+}
+
+int	check_player(t_map *map)
+{
+	int	i;
+	int	j;
+	int	player;
+
+	i = 0;
+	player = 0;
+	while (map->tab[i])
+	{
+		j = 0;
+		while (map->tab[i][j])
+		{
+			if (map->tab[i][j] == PLAYER)
+				player++;
+			j++;
+		}
+		i++;
+	}
+	if (player != 1)
+		map_error("Please put only 1 player.");
+	return (0);
+}
+

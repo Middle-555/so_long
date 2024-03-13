@@ -6,12 +6,13 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 23:16:03 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/06 01:13:03 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/13 10:23:43 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
+/*
 t_sprites	init_sprites(void *mlx)
 {
 	t_sprites	sprite;
@@ -62,3 +63,4 @@ void	put_sprite_on_screen(t_so_long *game, int height, int width)
 		mlx_put_image_to_window(game->mlx, game->window, game->sprite.ground,
 			width * 30, height * 30);
 }
+*/

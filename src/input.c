@@ -6,12 +6,12 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 14:49:42 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/05 20:18:23 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/13 10:24:03 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
-
+/*
 void	input_handler(int keycode, t_so_long *game)
 {
 	if (keycode == KEY_Z || keycode == KEY_UP)
@@ -25,3 +25,4 @@ void	input_handler(int keycode, t_so_long *game)
 	//if (keycode == KEY_ESC)
 		//exit_game(game);
 }
+*/

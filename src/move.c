@@ -6,12 +6,12 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 12:02:20 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/05 23:23:42 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/13 10:23:26 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
-
+/*
 int	player_move_up(t_so_long *game)
 {
 	t_map	*map;
@@ -88,3 +88,4 @@ int	player_move_left(t_so_long *game)
 	}
 	return (0);
 }
+*/
