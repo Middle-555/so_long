@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:04:39 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/13 16:07:14 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/13 16:37:01 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,8 +111,23 @@ int	wall_checker(t_map *map)
 {
 	int	i;
 	int	j;
+	int	len;
 
 	i = 0;
 	j = 0;
-	
+	len = ft_strlen(map->tab[i]);
+	while (map->tab[i])
+	{
+		j = 0;
+		while (map->tab[0][j])
+		{
+			if (map->tab[0][j] != WALL)
+				map_error("need wall.");
+			j++;
+		}
+		if (map->tab[i][0] != WALL && map->tab[i][len] != WALL)
+			map_error("Need wall.");
+		i++;
+	}
+	return (0);
 }

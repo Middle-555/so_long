@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 15:48:17 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/13 13:54:04 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/13 16:48:12 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ int	main(int argc, char **argv)
 	check_player(&map);
 	not_enough_collectible(&map);
 	not_rectangular(&map);
+	wall_checker(&map);
+	check_last_line(&map);
 }
 
