@@ -11,17 +11,6 @@
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
-/*
-size_t	ft_size_line(char *str)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i] && str[i] != '\n')
-		i++;
-	return (i);
-}
-*/
 
 int	check_ber_format(char *str)
 {
@@ -63,7 +52,6 @@ void	free_tab(t_map *map)
 
 void	free_game(t_so_long *game)
 {
-
 	if (!game)
 		return ;
 	if (game->sprite.player)
@@ -85,34 +73,6 @@ void	free_game(t_so_long *game)
 	if (game->map)
 		free_tab(game->map);
 }
-/*
-char	*ft_strjoin_n(char *s1, char *s2)
-{
-	size_t	i;
-	size_t	k;
-	char	*s3;
-
-	s3 = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 2));
-	if (!s3)
-		return (NULL);
-	i = 0;
-	while (s1[i])
-	{
-		s3[i] = s1[i];
-		i++;
-	}
-	k = 0;
-	while (s2[k])
-	{
-		s3[i + k] = s2[k];
-		k++;
-	}
-	s3[i + k] = '\n';
-	s3[i + k + 1] = '\0';
-	free(s1);
-	free(s2);
-	return (s3);
-}*/
 
 int	ft_total_len(char *path)
 {
@@ -132,4 +92,3 @@ int	ft_total_len(char *path)
 	close (fd);
 	return (i);
 }
-

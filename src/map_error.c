@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:04:39 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/13 11:26:18 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/13 16:07:14 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,10 @@ int	not_enough_exit(t_map *map)
 
 int	check_player(t_map *map)
 {
-	int	i;
-	int	j;
-	int	player;
+	int			i;
+	int			j;
+	int			player;
+	t_position	position;
 
 	i = 0;
 	player = 0;
@@ -92,7 +93,11 @@ int	check_player(t_map *map)
 		while (map->tab[i][j])
 		{
 			if (map->tab[i][j] == PLAYER)
+			{
 				player++;
+				position.y = i;
+				position.x = j;
+			}
 			j++;
 		}
 		i++;
@@ -102,3 +107,12 @@ int	check_player(t_map *map)
 	return (0);
 }
 
+int	wall_checker(t_map *map)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	
+}

@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/13 11:19:59 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/13 11:35:49 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ typedef struct s_position
 typedef struct s_player_position
 {
 	t_position			p_position;
-	t_position			start_position;
 	void				*player;
 }						t_player_position;
 
