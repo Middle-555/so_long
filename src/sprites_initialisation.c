@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 23:16:03 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/13 17:33:23 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/13 18:38:53 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ t_sprites	init_sprites(void *mlx)
 			&height);
 	if (sprite.exit == NULL)
 		map_error("Couldn't load the 'exit' XPM.");
-	sprite.collectible = mlx_xpm_file_to_image(mlx, "sprites/collectible.xpm",
-			&width, &height);
-	if (sprite.collectible == NULL)
-		map_error("Couldn't load the 'collectible' XPM.");
+	//sprite.collectible = mlx_xpm_file_to_image(mlx, "sprites/collectible.xpm",
+	//		&width, &height);
+	//if (sprite.collectible == NULL)
+	//	map_error("Couldn't load the 'collectible' XPM.");
 	sprite.wall = mlx_xpm_file_to_image(mlx, "sprites/wall.xpm", &width,
 			&height);
 	if (sprite.wall == NULL)

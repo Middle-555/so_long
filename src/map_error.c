@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:04:39 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/13 16:37:01 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/13 18:33:53 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	check_player(t_map *map)
 	int			i;
 	int			j;
 	int			player;
-	t_position	position;
+	//t_position	position;
 
 	i = 0;
 	player = 0;
@@ -95,8 +95,8 @@ int	check_player(t_map *map)
 			if (map->tab[i][j] == PLAYER)
 			{
 				player++;
-				position.y = i;
-				position.x = j;
+				//position.y = i;
+				//position.x = j;
 			}
 			j++;
 		}
