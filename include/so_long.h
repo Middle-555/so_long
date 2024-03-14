@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/14 14:41:36 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/14 15:59:23 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,8 +104,7 @@ int						map_parser(t_map *map);
 void					fill_map(t_so_long *game, const char *path);
 void					alloc_map(t_so_long *game);
 int						check_wall_error(t_map *map);
-void					create_game_window(t_so_long *game, int height,
-							int width);
+void					create_game_window(t_so_long *game, t_map *map, t_sprites *sprites);
 size_t					ft_size_line(char *str);
 int						check_ber_format(char *str);
 void					map_error(char *str);
@@ -122,4 +121,4 @@ int						check_player(t_map *map);
 int						wall_checker(t_map *map);
 int						check_last_line(t_map *map);
 
-#endif // SO_LONG_H
+#endif // SO_LONG_H//
