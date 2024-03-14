@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/13 16:48:01 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/14 11:19:54 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ size_t					ft_size_line(char *str);
 int						check_ber_format(char *str);
 void					map_error(char *str);
 char					*ft_strjoin_n(char *s1, char *s2);
-t_sprites				init_sprites(void *mlx);
+void				init_sprites(t_so_long *game, t_sprites *sprites);
 void					put_sprite_on_screen(t_so_long *game, int height,
 							int width);
 int						ft_total_len(char *path);
