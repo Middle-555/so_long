@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 23:16:03 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/14 13:56:45 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/14 14:22:41 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,23 +39,37 @@ void	init_sprites(t_so_long *game, t_sprites *sprites)
 		map_error("Couldn't load the 'ground' XPM.");
 }
 
-void	put_sprite_on_screen(t_so_long *game, int height, int width)
+void	put_sprite_on_screen(t_so_long *game, t_map *map, t_sprites *sprites)
 {
-	if (height < 0 || height >= game->map->height || width < 0 || width >= game->map->width)
-		return;
-	if (game->map->tab[i][width] == WALL)
-		mlx_put_image_to_window(game->mlx, game->window, game->sprite.wall,
-					width * 30, height * 30);
-	else if (game->map->tab[height][width] == COLLECT)
-		mlx_put_image_to_window(game->mlx, game->window,
-					game->sprite.collectible, width * 30, height * 30);
-	else if (game->map->tab[height][width] == EXIT)
-		mlx_put_image_to_window(game->mlx, game->window, game->sprite.exit,
-					width * 30, height * 30);
-	else if (game->map->tab[height][width] == PLAYER)
-		mlx_put_image_to_window(game->mlx, game->window, game->sprite.player,
-					width * 30, height * 30);
-	else
-		mlx_put_image_to_window(game->mlx, game->window, game->sprite.ground,
-					width * 30, height * 30);
+	int	i;
+	int	j;
+
+	i = 0;
+	while (map->tab[i])
+	{
+		j = 0;
+		while (map->tab[i][j])
+		{
+			//if (j < 0 || height >= game->map->height || i < 0 || width >= game->map->width)
+				//return;
+			if (map->tab[i][j] == WALL)
+				mlx_put_image_to_window(game->mlx, game->window, sprites->wall,
+					i * 32, j * 32);
+			else if (map->tab[i][j] == COLLECT)
+				mlx_put_image_to_window(game->mlx, game->window,
+					sprites->collectible, i * 32, j* 32);
+			else if (map->tab[i][j] == EXIT)
+				mlx_put_image_to_window(game->mlx, game->window, sprites->exit,
+					i * 32, j * 32);
+			else if (map->tab[i][j] == PLAYER)
+				mlx_put_image_to_window(game->mlx, game->window, sprites->player,
+					i * 32, j * 32);
+			else
+				mlx_put_image_to_window(game->mlx, game->window, sprites->ground,
+					i * 32, j * 32);
+			j++;
+		}
+		i++;
+	}
+	
 }

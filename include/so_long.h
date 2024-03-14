@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/14 11:19:54 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/14 14:41:36 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,8 +111,7 @@ int						check_ber_format(char *str);
 void					map_error(char *str);
 char					*ft_strjoin_n(char *s1, char *s2);
 void				init_sprites(t_so_long *game, t_sprites *sprites);
-void					put_sprite_on_screen(t_so_long *game, int height,
-							int width);
+void					put_sprite_on_screen(t_so_long *game, t_map *map, t_sprites *sprites);
 int						ft_total_len(char *path);
 int						map_stock(t_map *map);
 void					free_tab(t_map *map);

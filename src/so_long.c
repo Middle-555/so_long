@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:49 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/13 10:39:09 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/14 14:14:20 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,5 @@ void	create_game_window(t_so_long *game, int height, int width)
 		free(game->mlx);
 		return ;
 	}
+	mlx_loop(game->mlx);
 }
