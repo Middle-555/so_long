@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/14 15:59:23 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/14 17:19:42 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@
 # define KEY_LEFT 65361
 
 // Window size
-# define WINDOWS_WIDTH 500
-# define WINDOWS_HEIGHT 500
+//# define WINDOWS_WIDTH 500
+//# define WINDOWS_HEIGHT 500
 
 typedef struct s_position
 {
@@ -61,6 +61,14 @@ typedef struct s_player_position
 	void				*player;
 }						t_player_position;
 
+typedef struct s_img
+{
+	void	*sprite;
+	char	*path;
+	int	height;
+	int	width;
+}		t_img;
+
 typedef struct s_map
 {
 	char				*path;
@@ -73,7 +81,7 @@ typedef struct s_map
 
 typedef struct s_sprites
 {
-	void				*player;
+	t_img				*player;
 	void				*collectible;
 	void				*exit;
 	void				*ground;

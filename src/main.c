@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 15:48:17 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/14 16:48:52 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/14 17:17:50 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 	wall_checker(&map);
 	check_last_line(&map);
 	init_sprites(&game, &sprites);
-	put_sprite_on_screen(&game, &map, &sprites);
 	create_game_window(&game, &map, &sprites);
+	put_sprite_on_screen(&game, &map, &sprites);
 	mlx_loop(game.mlx);
 }
