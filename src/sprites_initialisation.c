@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 23:16:03 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/14 17:18:08 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/14 17:48:42 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,19 +60,19 @@ void	put_sprite_on_screen(t_so_long *game, t_map *map, t_sprites *sprites)
 			// return ;
 			if (map->tab[i][j] == WALL)
 				mlx_put_image_to_window(game->mlx, game->window, sprites->wall,
-					i * 32, j * 32);
+					j * 32, i * 32);
 			else if (map->tab[i][j] == COLLECT)
 				mlx_put_image_to_window(game->mlx, game->window,
-					sprites->collectible, i * 32, j * 32);
+					sprites->collectible, j * 32, i * 32);
 			else if (map->tab[i][j] == EXIT)
 				mlx_put_image_to_window(game->mlx, game->window, sprites->exit,
-					i * 32, j * 32);
+					j * 32, i * 32);
 			else if (map->tab[i][j] == PLAYER)
 				mlx_put_image_to_window(game->mlx, game->window,
-					sprites->player, i * 32, j * 32);
+					sprites->player, j * 32, i * 32);
 			else if (map->tab[i][j] == GROUND)
 				mlx_put_image_to_window(game->mlx, game->window,
-					sprites->ground, i * 32, j * 32);
+					sprites->ground, j * 32, i * 32);
 			j++;
 		}
 		i++;
