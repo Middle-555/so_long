@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 23:16:03 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/14 11:27:06 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/14 13:56:45 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ void	init_sprites(t_so_long *game, t_sprites *sprites)
 		map_error("Couldn't load the 'exit' XPM.");
 	sprites->collectible = mlx_xpm_file_to_image(game->mlx,
 						   "./sprites/collectible.xpm", &size, &size);
-/*	if (sprites->collectible == NULL)
+	if (sprites->collectible == NULL)
 		map_error("Couldn't load the 'collectible' XPM.");
 	sprites->wall = mlx_xpm_file_to_image(game->mlx, "./sprites/wall.xpm", &size,
-					    &size);*/
+					    &size);
 	if (sprites->wall == NULL)
 		map_error("Couldn't load the 'wall' XPM.");
 	sprites->ground = mlx_xpm_file_to_image(game->mlx, "./sprites/ground.xpm", &size,
@@ -43,7 +43,7 @@ void	put_sprite_on_screen(t_so_long *game, int height, int width)
 {
 	if (height < 0 || height >= game->map->height || width < 0 || width >= game->map->width)
 		return;
-	if (game->map->tab[height][width] == WALL)
+	if (game->map->tab[i][width] == WALL)
 		mlx_put_image_to_window(game->mlx, game->window, game->sprite.wall,
 					width * 30, height * 30);
 	else if (game->map->tab[height][width] == COLLECT)
