@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:04:39 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/15 16:11:41 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/15 16:39:33 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	not_enough_exit(t_map *map)
 	return (0);
 }
 
-int	check_player(t_map *map,t_so_long *game)
+int	check_player(t_map *map, t_so_long *game)
 {
 	int			i;
 	int			j;
@@ -94,12 +94,8 @@ int	check_player(t_map *map,t_so_long *game)
 			if (map->tab[i][j] == PLAYER)
 			{
 				player_count++;
-				ft_printf("%d\n", i);
-				ft_printf("%d\n", j);
-				game->player_pos.p_position.y = j;
-				game->player_pos.p_position.x = i;
-				ft_printf("%d\n", game->player_pos.p_position.y);
-				ft_printf("%d\n", game->player_pos.p_position.x);
+				game->player_pos.p_position.y = i;
+				game->player_pos.p_position.x = j;
 			}
 			j++;
 		}
