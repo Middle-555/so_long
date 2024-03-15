@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/15 11:48:02 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/15 14:39:11 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ typedef struct s_so_long
 }						t_so_long;
 
 // Function prototypes
-void					input_handler(int keycode, t_so_long *game, t_map *map);
+int						input_handler(int keycode, t_so_long *game);
 int						player_move_up(t_so_long *game, t_map *map);
 int						player_move_down(t_so_long *game, t_map *map);
 int						player_move_right(t_so_long *game, t_map *map);
@@ -104,13 +104,15 @@ int						map_parser(t_map *map);
 void					fill_map(t_so_long *game, const char *path);
 void					alloc_map(t_so_long *game);
 int						check_wall_error(t_map *map);
-void					create_game_window(t_so_long *game, t_map *map, t_sprites *sprites);
+void					create_game_window(t_so_long *game, t_map *map,
+							t_sprites *sprites);
 size_t					ft_size_line(char *str);
 int						check_ber_format(char *str);
 void					map_error(char *str);
 char					*ft_strjoin_n(char *s1, char *s2);
-void				init_sprites(t_so_long *game, t_sprites *sprites);
-void					put_sprite_on_screen(t_so_long *game, t_map *map, t_sprites *sprites);
+void					init_sprites(t_so_long *game, t_sprites *sprites);
+void					put_sprite_on_screen(t_so_long *game, t_map *map,
+							t_sprites *sprites);
 int						ft_total_len(char *path);
 int						map_stock(t_map *map);
 void					free_tab(t_map *map);
