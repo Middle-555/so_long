@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 12:02:20 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/15 15:10:25 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/15 16:11:44 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ int	player_move_down(t_so_long *game, t_map *map)
 	i = game->player_pos.p_position.y;
 	j = game->player_pos.p_position.x;
 
-	ft_printf("%d", i);
-	ft_printf("%d", j);
-	ft_printf("%d", map->tab[i]);
-	ft_printf("%d", map->tab[j]);
-	/*if (i + 1 < map->height && map->tab[i + 1][j] != WALL)
-	//{
+	ft_printf("%d\n", i);
+	ft_printf("%d\n", j);
+	ft_printf("%d\n", map->tab[i]);
+	ft_printf("%d\n", map->tab[j]);
+	if (i + 1 < map->height && map->tab[i + 1][j] != WALL)
+	{
 		map->tab[i][j] = GROUND;
 		map->tab[i + 1][j] = PLAYER;
 		// Autres opérations
@@ -52,7 +52,6 @@ int	player_move_down(t_so_long *game, t_map *map)
 	{
 		printf("Impossible de déplacer le joueur vers le bas.\n");
 	}
-	*/
 	return (0);
 }
 

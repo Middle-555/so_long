@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 15:48:17 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/15 14:57:06 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/15 16:12:09 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,11 @@ int	main(int argc, char **argv)
 	game.mlx = mlx_init();
 	map_stock(&map);
 	not_enough_exit(&map);
-	check_player(&map);
+	check_player(&map, &game);
 	not_enough_collectible(&map);
 	not_rectangular(&map);
 	wall_checker(&map);
 	check_last_line(&map);
-	player_move_down(&game, &map);
-	player_move_up(&game, &map);
-	player_move_left(&game, &map);
-	player_move_right(&game, &map);
 	init_sprites(&game, &sprites);
 	create_game_window(&game, &map, &sprites);
 	put_sprite_on_screen(&game, &map, &sprites);

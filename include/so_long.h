@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/15 14:59:23 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/15 16:06:52 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ void					free_tab(t_map *map);
 int						not_rectangular(t_map *map);
 int						not_enough_collectible(t_map *map);
 int						not_enough_exit(t_map *map);
-int						check_player(t_map *map);
+int						check_player(t_map *map, t_so_long *game);
 int						wall_checker(t_map *map);
 int						check_last_line(t_map *map);
 

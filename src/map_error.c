@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:04:39 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/14 17:40:59 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/15 16:11:41 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,15 +78,14 @@ int	not_enough_exit(t_map *map)
 	return (0);
 }
 
-int	check_player(t_map *map)
+int	check_player(t_map *map,t_so_long *game)
 {
 	int			i;
 	int			j;
-	int			player;
-	//t_position	position;
+	int			player_count;
 
 	i = 0;
-	player = 0;
+	player_count = 0;
 	while (map->tab[i])
 	{
 		j = 0;
@@ -94,15 +93,19 @@ int	check_player(t_map *map)
 		{
 			if (map->tab[i][j] == PLAYER)
 			{
-				player++;
-				//position.y = i;
-				//position.x = j;
+				player_count++;
+				ft_printf("%d\n", i);
+				ft_printf("%d\n", j);
+				game->player_pos.p_position.y = j;
+				game->player_pos.p_position.x = i;
+				ft_printf("%d\n", game->player_pos.p_position.y);
+				ft_printf("%d\n", game->player_pos.p_position.x);
 			}
 			j++;
 		}
 		i++;
 	}
-	if (player != 1)
+	if (player_count != 1)
 		map_error("Please put only 1 player.");
 	return (0);
 }
