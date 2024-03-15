@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 15:48:17 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/15 14:42:34 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/15 14:57:06 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int argc, char **argv)
 	t_map				map;
 	t_so_long			game;
 	t_sprites			sprites;
-	t_player_position		player;
+	//t_player_position		player;
 
 	map.path = argv[1];
 	if (argc != 2)
