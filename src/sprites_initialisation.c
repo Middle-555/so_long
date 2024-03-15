@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 23:16:03 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/14 21:24:59 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/14 23:13:41 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,21 +43,13 @@ void	put_sprite_on_screen(t_so_long *game, t_map *map, t_sprites *sprites)
 {
 	int	i;
 	int	j;
-	//int	width;
-	//int	height;
 
 	i = 0;
-
-	//game->sprite.player = (t_img*)malloc(sizeof(t_img));
-	//game->sprite.player.img = mlx_xpm_file_to_image(game->mlx, "./sprites/player.xpm", &width, &height);
 	while (map->tab[i])
 	{
 		j = 0;
 		while (map->tab[i][j])
 		{
-			// if (j < 0 || height >= game->map->height || i < 0
-				//|| width >= game->map->width)
-			// return ;
 			if (map->tab[i][j] == WALL)
 				mlx_put_image_to_window(game->mlx, game->window, sprites->wall,
 					j * 96, i * 96);

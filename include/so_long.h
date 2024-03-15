@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/14 17:19:42 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/15 11:48:02 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,6 @@ typedef struct s_player_position
 	void				*player;
 }						t_player_position;
 
-typedef struct s_img
-{
-	void	*sprite;
-	char	*path;
-	int	height;
-	int	width;
-}		t_img;
-
 typedef struct s_map
 {
 	char				*path;
@@ -81,7 +73,7 @@ typedef struct s_map
 
 typedef struct s_sprites
 {
-	t_img				*player;
+	void				*player;
 	void				*collectible;
 	void				*exit;
 	void				*ground;
@@ -103,11 +95,11 @@ typedef struct s_so_long
 }						t_so_long;
 
 // Function prototypes
-void					input_handler(int keycode, t_so_long *game);
-int						player_move_up(t_so_long *game);
-int						player_move_down(t_so_long *game);
-int						player_move_right(t_so_long *game);
-int						player_move_left(t_so_long *game);
+void					input_handler(int keycode, t_so_long *game, t_map *map);
+int						player_move_up(t_so_long *game, t_map *map);
+int						player_move_down(t_so_long *game, t_map *map);
+int						player_move_right(t_so_long *game, t_map *map);
+int						player_move_left(t_so_long *game, t_map *map);
 int						map_parser(t_map *map);
 void					fill_map(t_so_long *game, const char *path);
 void					alloc_map(t_so_long *game);

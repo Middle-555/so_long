@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:49 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/14 19:28:53 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/15 11:31:25 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	create_game_window(t_so_long *game, t_map *map, t_sprites *sprites)
 	if (game->mlx == NULL)
 		return ;
 	game->window = mlx_new_window(game->mlx, map->width * 96, map->height * 96,
-			"kpourcel - So_long");
+			"So_long");
 	if (game->window == NULL)
 	{
 		free(game->mlx);
