@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/15 19:20:35 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/16 12:41:43 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int						input_handler(int keycode, t_so_long *game, t_map *map);
 int						player_move_up(t_so_long *game, t_map *map);
 int						player_move_down(t_so_long *game, t_map *map);
 int						player_move_right(t_so_long *game, t_map *map);
-int						player_move_left(t_so_long *game, t_map *man);
+int						player_move_left(t_so_long *game, t_map *map);
 int						map_parser(t_map *map);
 void					fill_map(t_so_long *game, const char *path);
 void					alloc_map(t_so_long *game);

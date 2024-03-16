@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/05 12:02:20 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/15 19:17:48 by kpourcel         ###   ########.fr       */
+/*   Created: 2024/03/16 12:23:43 by kpourcel          #+#    #+#             */
+/*   Updated: 2024/03/16 13:48:17 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,82 +14,80 @@
 
 int	player_move_up(t_so_long *game, t_map *map)
 {
-	int	i;
-	int	j;
+	int	new_y;
+	int	new_x;
 
-	i = game->player_pos.p_position.y;
-	j = game->player_pos.p_position.x;
-	ft_printf("%d y\n", game->player_pos.p_position.y);
-	ft_printf("%d x\n", game->player_pos.p_position.x);
-	if (map->tab[i - 1][j] != WALL)
+	new_y = game->player_pos.p_position.y - 1;
+	new_x = game->player_pos.p_position.x;
+	if (new_y >= 0 && map->tab[new_y][game->player_pos.p_position.x] != WALL)
 	{
-		map->tab[i][j] = GROUND;
-		map->tab[i - 1][j] = PLAYER;
-		game->player_pos.p_position.y = i - 1;
-		return (1);
+		map->tab[game->player_pos.p_position.y][game->player_pos.p_position.x] = GROUND;
+		game->player_pos.p_position.y = new_y;
+		map->tab[new_y][game->player_pos.p_position.x] = PLAYER;
+		game->count_step++;
+		printf("Nouvelles coordonnées : x=%d, y=%d\n", new_x, new_y);
+		printf("Contenu de la case : %c\n", map->tab[new_y][new_x]);
+
 	}
 	return (0);
 }
 
 int	player_move_down(t_so_long *game, t_map *map)
 {
-	int	i;
-	int	j;
+	int	new_y;
+	int	new_x;
 
-
-	i = game->player_pos.p_position.y;
-	j = game->player_pos.p_position.x;
-	ft_printf("%d y\n", game->player_pos.p_position.y);
-	ft_printf("%d x\n", game->player_pos.p_position.x);
-
-	ft_printf("%d\n", i);
-	ft_printf("%d\n", j);
-	ft_printf("%d\n", map->tab[i]);
-	ft_printf("%d\n", map->tab[j]);
-	if (map->tab[i + 1][j] != WALL)
+	new_y = game->player_pos.p_position.y + 1;
+	new_x = game->player_pos.p_position.x;
+	if (new_y < map->height
+		&& map->tab[new_y][game->player_pos.p_position.x] != WALL)
 	{
-		map->tab[i][j] = GROUND;
-		map->tab[i + 1][j] = PLAYER;
-		game->player_pos.p_position.y = i + 1;
-		return (1);
+		map->tab[game->player_pos.p_position.y][game->player_pos.p_position.x] = GROUND;
+		game->player_pos.p_position.y = new_y;
+		map->tab[new_y][game->player_pos.p_position.x] = PLAYER;
+		game->count_step++;
+		printf("Nouvelles coordonnées : x=%d, y=%d\n", new_x, new_y);
+		printf("Contenu de la case : %c\n", map->tab[new_y][new_x]);
+
 	}
 	return (0);
 }
 
 int	player_move_right(t_so_long *game, t_map *map)
 {
-	int	i;
-	int	j;
+	int	new_x;
+	int	new_y;
 
-	i = game->player_pos.p_position.y;
-	j = game->player_pos.p_position.x;
-	ft_printf("%d y\n", game->player_pos.p_position.y);
-	ft_printf("%d x\n", game->player_pos.p_position.x);
-	if (map->tab[i][j + 1] != WALL)
+	new_x = game->player_pos.p_position.x + 1;
+	new_y = game->player_pos.p_position.y;
+	if (new_x < map->width
+		&& map->tab[game->player_pos.p_position.y][new_x] != WALL)
 	{
-		map->tab[i][j] = GROUND;
-		map->tab[i][j + 1] = PLAYER;
-		game->player_pos.p_position.x = j + 1;
-		return (1);
+		map->tab[game->player_pos.p_position.y][game->player_pos.p_position.x] = GROUND;
+		game->player_pos.p_position.x = new_x;
+		map->tab[game->player_pos.p_position.y][new_x] = PLAYER;
+		game->count_step++;
+		printf("Nouvelles coordonnées : x=%d, y=%d\n", new_x, new_y);
+		printf("Contenu de la case : %c\n", map->tab[new_y][new_x]);
 	}
 	return (0);
 }
 
 int	player_move_left(t_so_long *game, t_map *map)
 {
-	int	i;
-	int	j;
+	int	new_x;
+	int	new_y;
 
-	i = game->player_pos.p_position.y;
-	j = game->player_pos.p_position.x;
-	ft_printf("%d y\n", game->player_pos.p_position.y);
-	ft_printf("%d x\n", game->player_pos.p_position.x);
-	if (map->tab[i][j - 1] != WALL)
+	new_x = game->player_pos.p_position.x - 1;
+	new_y = game->player_pos.p_position.y;
+	if (new_x >= 0 && map->tab[game->player_pos.p_position.y][new_x] != WALL)
 	{
-		map->tab[i][j] = GROUND;
-		map->tab[i][j - 1] = PLAYER;
-		game->player_pos.p_position.x = j - 1;
-		return (1);
+		map->tab[game->player_pos.p_position.y][game->player_pos.p_position.x] = GROUND;
+		game->player_pos.p_position.x = new_x;
+		map->tab[game->player_pos.p_position.y][new_x] = PLAYER;
+		game->count_step++;
+		printf("Nouvelles coordonnées : x=%d, y=%d\n", new_x, new_y);
+		printf("Contenu de la case : %c\n", map->tab[new_y][new_x]);
 	}
 	return (0);
 }
