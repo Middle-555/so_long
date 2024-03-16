@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 12:02:20 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/15 17:15:14 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/15 19:17:48 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	player_move_up(t_so_long *game, t_map *map)
 
 	i = game->player_pos.p_position.y;
 	j = game->player_pos.p_position.x;
+	ft_printf("%d y\n", game->player_pos.p_position.y);
+	ft_printf("%d x\n", game->player_pos.p_position.x);
 	if (map->tab[i - 1][j] != WALL)
 	{
 		map->tab[i][j] = GROUND;
@@ -37,6 +39,8 @@ int	player_move_down(t_so_long *game, t_map *map)
 
 	i = game->player_pos.p_position.y;
 	j = game->player_pos.p_position.x;
+	ft_printf("%d y\n", game->player_pos.p_position.y);
+	ft_printf("%d x\n", game->player_pos.p_position.x);
 
 	ft_printf("%d\n", i);
 	ft_printf("%d\n", j);
@@ -59,6 +63,8 @@ int	player_move_right(t_so_long *game, t_map *map)
 
 	i = game->player_pos.p_position.y;
 	j = game->player_pos.p_position.x;
+	ft_printf("%d y\n", game->player_pos.p_position.y);
+	ft_printf("%d x\n", game->player_pos.p_position.x);
 	if (map->tab[i][j + 1] != WALL)
 	{
 		map->tab[i][j] = GROUND;
@@ -76,6 +82,8 @@ int	player_move_left(t_so_long *game, t_map *map)
 
 	i = game->player_pos.p_position.y;
 	j = game->player_pos.p_position.x;
+	ft_printf("%d y\n", game->player_pos.p_position.y);
+	ft_printf("%d x\n", game->player_pos.p_position.x);
 	if (map->tab[i][j - 1] != WALL)
 	{
 		map->tab[i][j] = GROUND;

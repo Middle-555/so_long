@@ -6,12 +6,13 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 16:03:01 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/13 16:49:07 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/15 19:09:14 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
+// Check if the last line is entirely constitued of walls.
 int	check_last_line(t_map *map)
 {
 	int	i;

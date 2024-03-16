@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 15:48:17 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/15 17:14:15 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/15 19:30:28 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,9 @@ int	main(int argc, char **argv)
 	check_last_line(&map);
 	init_sprites(&game, &sprites);
 	create_game_window(&game, &map, &sprites);
-	put_sprite_on_screen(&game, &map, &sprites);
 	mlx_loop(game.mlx);
-	mlx_hook(game.window, 2, 1 << 0, input_handler, &game);
-	mlx_hook(game.window, 2, 1L<<0, input_handler, &game);
+	mlx_hook(game.window, 2, 1 << 0, &input_handler, &game);
+	mlx_hook(game.window, 2, 1L<<0, &input_handler, &game);
+	mlx_key_hook(game.window, &input_handler,&game);
+	put_sprite_on_screen(&game, &map, &sprites);
 }

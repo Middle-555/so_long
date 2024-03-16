@@ -6,12 +6,13 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:04:39 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/15 16:39:33 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/15 19:10:42 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
+//Check is the map is rectangular.
 int	not_rectangular(t_map *map)
 {
 	size_t	i;
@@ -30,6 +31,7 @@ int	not_rectangular(t_map *map)
 	return (0);
 }
 
+// Check if there is enough collectible to play the game.
 int	not_enough_collectible(t_map *map)
 {
 	int	i;
@@ -54,6 +56,7 @@ int	not_enough_collectible(t_map *map)
 	return (0);
 }
 
+// Check if there is 1 exit.
 int	not_enough_exit(t_map *map)
 {
 	int	i;
@@ -78,6 +81,7 @@ int	not_enough_exit(t_map *map)
 	return (0);
 }
 
+// Check if there is 
 int	check_player(t_map *map, t_so_long *game)
 {
 	int			i;
@@ -96,6 +100,8 @@ int	check_player(t_map *map, t_so_long *game)
 				player_count++;
 				game->player_pos.p_position.y = i;
 				game->player_pos.p_position.x = j;
+				ft_printf("%d\n", game->player_pos.p_position.y);
+				ft_printf("%d\n", game->player_pos.p_position.x);
 			}
 			j++;
 		}
