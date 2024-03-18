@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 14:49:42 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/18 19:38:10 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/18 21:53:40 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@ int	input_handler(int keycode, t_so_long *game, t_sprites *sprites)
 		player_move_up(game, sprites);
 		ft_printf("Fonction player_move_up appelée\n");
 	}
-	return (0);
-}
-
-	/*if (keycode == KEY_S || keycode == KEY_DOWN)
+	if (keycode == KEY_S || keycode == KEY_DOWN)
 	{
 		player_move_down(game);
 		ft_printf("Fonction player_down appelée\n");
@@ -40,14 +37,13 @@ int	input_handler(int keycode, t_so_long *game, t_sprites *sprites)
 		player_move_left(game);
 		ft_printf("Fonction player move left appelée\n");
 	}
-		
 	if (keycode == KEY_ESC)
 	{
 		ft_printf("Fonction exit appelée\n");
 		exit(0);
-	}	
-		
+	}
+
 	return (0);
 }
-*/
+
 //exit_game(game);

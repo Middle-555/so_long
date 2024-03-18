@@ -6,44 +6,44 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:23:43 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/18 20:58:58 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/18 21:53:05 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
+
 int	player_move_up(t_so_long *game, t_sprites *sprites)
 {
 	int	new_y;
-	int	new_x;
 
 	new_y = game->player_pos.p_position.y - 1;
-	new_x = game->player_pos.p_position.x;
 	if (new_y >= 0
-		&& game->map.tab[new_y][game->player_pos.p_position.x] != WALL)
+		&& game->map.tab[new_y][game->player_pos.p_position.x] != WALL
+		&& game->map.tab[new_y][game->player_pos.p_position.x] != EXIT)
 	{
 		game->map.tab[game->player_pos.p_position.y][game->player_pos.p_position.x] = GROUND;
-		game->player_pos.p_position.x = new_x;
+		mlx_put_image_to_window(game->mlx, game->window, sprites->ground,
+			game->player_pos.p_position.x * 96,
+			game->player_pos.p_position.y * 96);
+		game->player_pos.p_position.y = new_y;
 		game->map.tab[new_y][game->player_pos.p_position.x] = PLAYER;
+		mlx_put_image_to_window(game->mlx, game->window, sprites->player,
+			game->player_pos.p_position.x * 96,
+			new_y * 96);
 		game->count_step++;
-		mlx_put_image_to_window(game->mlx, game->window, sprites->player, new_y * 96, new_x * 96);
-		mlx_put_image_to_window(game->mlx, game->window, sprites->ground, (new_y + 1) * 96, new_x * 96);
-		printf("Nouvelles coordonnées : x=%d, y=%d\n", new_x, new_y);
-		printf("Contenu de la case : %c\n", game->map.tab[new_y][new_x]);
 	}
 	return (0);
 }
-/*
+
 int	player_move_down(t_so_long *game)
 {
 	int	new_y;
-	int	new_x;
 
 	new_y = game->player_pos.p_position.y + 1;
-	new_x = game->player_pos.p_position.x;
-
 	if (new_y < game->map.height
-		&& game->map.tab[new_y][game->player_pos.p_position.x] != WALL)
+		&& game->map.tab[new_y][game->player_pos.p_position.x] != WALL
+		&& game->map.tab[new_y][game->player_pos.p_position.x] != EXIT)
 	{
 		game->map.tab[game->player_pos.p_position.y][game->player_pos.p_position.x] = GROUND;
 		game->player_pos.p_position.y = new_y;
@@ -56,12 +56,11 @@ int	player_move_down(t_so_long *game)
 int	player_move_right(t_so_long *game)
 {
 	int	new_x;
-	int	new_y;
 
 	new_x = game->player_pos.p_position.x + 1;
-	new_y = game->player_pos.p_position.y;
 	if (new_x < game->map.width
-		&& game->map.tab[game->player_pos.p_position.y][new_x] != WALL)
+		&& game->map.tab[game->player_pos.p_position.y][new_x] != WALL
+		&& game->map.tab[game->player_pos.p_position.y][new_x] != EXIT)
 	{
 		game->map.tab[game->player_pos.p_position.y][game->player_pos.p_position.x] = GROUND;
 		game->player_pos.p_position.x = new_x;
@@ -74,12 +73,11 @@ int	player_move_right(t_so_long *game)
 int	player_move_left(t_so_long *game)
 {
 	int	new_x;
-	int	new_y;
 
 	new_x = game->player_pos.p_position.x - 1;
-	new_y = game->player_pos.p_position.y;
 	if (new_x >= 0
-		&& game->map.tab[game->player_pos.p_position.y][new_x] != WALL)
+		&& game->map.tab[game->player_pos.p_position.y][new_x] != WALL
+		&& game->map.tab[game->player_pos.p_position.y][new_x] != EXIT)
 	{
 		game->map.tab[game->player_pos.p_position.y][game->player_pos.p_position.x] = GROUND;
 		game->player_pos.p_position.x = new_x;
@@ -88,4 +86,4 @@ int	player_move_left(t_so_long *game)
 	}
 	return (0);
 }
-*/
+
