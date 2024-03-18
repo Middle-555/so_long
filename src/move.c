@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:23:43 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/18 15:42:24 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/18 16:28:41 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	player_move_down(t_so_long *game, t_map *map)
 	new_y = game->player_pos.p_position.y + 1;
 	new_x = game->player_pos.p_position.x;
 	ft_printf("%d height\n", map->height);
+	ft_printf("%d width \n", map->width);
 	if (new_y < map->height
 		&& map->tab[new_y][game->player_pos.p_position.x] != WALL)
 	{
