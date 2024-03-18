@@ -6,13 +6,13 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:23:43 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/18 19:20:35 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/18 19:34:59 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	player_move_up(t_so_long *game)
+int	player_move_up(t_so_long *game, t_sprites *sprites)
 {
 	int	new_y;
 	int	new_x;
@@ -26,12 +26,14 @@ int	player_move_up(t_so_long *game)
 		game->player_pos.p_position.x = new_x;
 		game->map.tab[new_y][game->player_pos.p_position.x] = PLAYER;
 		game->count_step++;
+		mlx_put_image_to_window(game->mlx, game->window, sprites->player, new_x, new_y);
+		mlx_put_image_to_window(game->mlx, game->window, sprites->ground, (new_x +1), new_y);
 		printf("Nouvelles coordonnées : x=%d, y=%d\n", new_x, new_y);
 		printf("Contenu de la case : %c\n", game->map.tab[new_y][new_x]);
 	}
 	return (0);
 }
-
+/*
 int	player_move_down(t_so_long *game)
 {
 	int	new_y;
@@ -86,4 +88,4 @@ int	player_move_left(t_so_long *game)
 	}
 	return (0);
 }
-
+*/

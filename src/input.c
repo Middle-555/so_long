@@ -6,21 +6,24 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 14:49:42 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/18 18:40:46 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/18 19:38:10 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	input_handler(int keycode, t_so_long *game)
+int	input_handler(int keycode, t_so_long *game, t_sprites *sprites)
 {
 	ft_printf("%d \n", keycode);
 	if (keycode == KEY_Z || keycode == KEY_UP)
 	{
-		player_move_up(game);
+		player_move_up(game, sprites);
 		ft_printf("Fonction player_move_up appelée\n");
 	}
-	if (keycode == KEY_S || keycode == KEY_DOWN)
+	return (0);
+}
+
+	/*if (keycode == KEY_S || keycode == KEY_DOWN)
 	{
 		player_move_down(game);
 		ft_printf("Fonction player_down appelée\n");
@@ -46,4 +49,5 @@ int	input_handler(int keycode, t_so_long *game)
 		
 	return (0);
 }
+*/
 //exit_game(game);

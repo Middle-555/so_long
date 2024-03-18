@@ -20,7 +20,7 @@ int	check_ber_format(char *str)
 	if (str[size] == 'r' && str[size - 1] == 'e' && str[size - 2] == 'b'
 		&& str[size - 3] == '.')
 	{
-		map_error("Please use a map with the .ber extension");
+		map_error("Please use a game with the .ber extension");
 		return (1);
 	}
 	return (0);
@@ -33,21 +33,21 @@ void	map_error(char *str)
 	exit(1);
 }
 
-void	free_tab(t_map *map)
+void	free_tab(t_so_long *game)
 {
 	int	i;
 
 	i = 0;
 
-	if (map && map->tab)
+	if (game && game->map.tab)
 	{
-		while (map->tab[i])
+		while (game->map.tab[i])
 		{
-			free(map->tab[i]);
+			free(game->map.tab[i]);
 			i++;
 		}
 	}
-	free (map->tab);
+	free (game->map.tab);
 }
 
 void	free_game(t_so_long *game)
@@ -70,8 +70,8 @@ void	free_game(t_so_long *game)
 		mlx_destroy_display(game->mlx);
 	if (game->mlx)
 		free(game->mlx);
-	if (game->map.tab)
-		free_tab(game->map.tab);
+	//if (game->game.tab)
+		//free_tab(game->game.tab);
 }
 
 int	ft_total_len(char *path)
