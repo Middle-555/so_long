@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 14:49:42 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/16 13:44:31 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/18 15:37:52 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	input_handler(int keycode, t_so_long *game, t_map *map)
 	{
 		player_move_down(game, map);
 		ft_printf("Fonction player_down appelée\n");
+		ft_printf("%dx\n",  game->player_pos.p_position.x);
+		ft_printf("%dy\n",  game->player_pos.p_position.y);
 	}
 	if (keycode == KEY_D || keycode == KEY_RIGHT)
 	{

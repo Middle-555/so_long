@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:42:03 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/18 14:37:19 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/18 15:20:48 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	exit_game(t_so_long *game)
 {
-	(void)game; // Pour éviter un avertissement sur le paramètre non utilisé
+	(void)game; 
 	exit(0);
 	return (0);
 }
@@ -49,7 +49,7 @@ int	main(int argc, char **argv)
 	mlx_loop(game.mlx);
 	mlx_loop_hook(game.mlx, &input_handler, &game);
 	mlx_hook(game.window, 17, 0, &exit_game, NULL);
-	//mlx_loop(game.mlx);
+	mlx_loop(game.mlx);
 	//mlx_hook(game.window, 2, 1 << 0, &input_handler, &game);
 	//mlx_hook(game.window, 2, 1L << 0, &input_handler, &game);
 }
