@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:49 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/15 17:56:04 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/18 13:28:07 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	map_stock(t_map *map)
 	return (0);
 }
 
-void	create_game_window(t_so_long *game, t_map *map, t_sprites *sprites)
+void	create_game_window(t_so_long *game, t_map *map)
 {
 	if (game->mlx == NULL)
 		return ;
@@ -48,6 +48,5 @@ void	create_game_window(t_so_long *game, t_map *map, t_sprites *sprites)
 		free(game->mlx);
 		return ;
 	}
-	put_sprite_on_screen(game, map, sprites);
 	//mlx_loop(game->mlx);
 }

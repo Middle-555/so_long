@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 23:16:03 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/16 12:46:51 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/18 13:25:59 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,9 @@ void	put_sprite_on_screen(t_so_long *game, t_map *map, t_sprites *sprites)
 	i = 0;
 	while (map->tab[i])
 	{
-		printf("i=%d\n", i); // Afficher la valeur de i
 		j = 0;
 		while (map->tab[i][j])
 		{
-			if (!map->tab[i])
-			{
-				printf("map->tab[i] est NULL à l'indice i=%d\n", i);
-				break;
-			}
 			if (map->tab[i][j] == WALL)
 				mlx_put_image_to_window(game->mlx, game->window, sprites->wall,
 					j * 96, i * 96);
@@ -71,7 +65,6 @@ void	put_sprite_on_screen(t_so_long *game, t_map *map, t_sprites *sprites)
 			else if (map->tab[i][j] == GROUND)
 				mlx_put_image_to_window(game->mlx, game->window,
 					sprites->ground, j * 96, i * 96);
-			printf("j=%d\n", j); // Afficher la valeur de j
 			j++;
 		}
 		i++;

@@ -6,18 +6,12 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:42:03 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/16 13:45:12 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/18 14:37:19 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-// Fonction intermédiaire pour mlx_loop_hook
-int	loop_hook_handler(t_so_long *game)
-{
-	put_sprite_on_screen(game, game->map, &(game->sprite));
-	return (0);
-}
 
 int	exit_game(t_so_long *game)
 {
@@ -48,11 +42,14 @@ int	main(int argc, char **argv)
 	wall_checker(&map);
 	check_last_line(&map);
 	init_sprites(&game, &sprites);
-	create_game_window(&game, &map, &sprites);
-	mlx_loop_hook(game.mlx, &loop_hook_handler, &game);
-	mlx_hook(game.window, 17, 0, &exit_game, NULL);
-	mlx_loop(game.mlx);
+	create_game_window(&game, &map);
+	put_sprite_on_screen(&game, &map, &sprites);
 	mlx_hook(game.window, 2, 1 << 0, &input_handler, &game);
 	mlx_hook(game.window, 2, 1L << 0, &input_handler, &game);
-	put_sprite_on_screen(&game, &map, &sprites);
+	mlx_loop(game.mlx);
+	mlx_loop_hook(game.mlx, &input_handler, &game);
+	mlx_hook(game.window, 17, 0, &exit_game, NULL);
+	//mlx_loop(game.mlx);
+	//mlx_hook(game.window, 2, 1 << 0, &input_handler, &game);
+	//mlx_hook(game.window, 2, 1L << 0, &input_handler, &game);
 }

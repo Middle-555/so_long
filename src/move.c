@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:23:43 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/16 13:48:17 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/18 14:43:56 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ int	player_move_up(t_so_long *game, t_map *map)
 
 	new_y = game->player_pos.p_position.y - 1;
 	new_x = game->player_pos.p_position.x;
-	if (new_y >= 0 && map->tab[new_y][game->player_pos.p_position.x] != WALL)
+	if (new_y >= 0 && map->tab[new_x][game->player_pos.p_position.y] != WALL)
 	{
-		map->tab[game->player_pos.p_position.y][game->player_pos.p_position.x] = GROUND;
-		game->player_pos.p_position.y = new_y;
-		map->tab[new_y][game->player_pos.p_position.x] = PLAYER;
+		map->tab[game->player_pos.p_position.x][game->player_pos.p_position.y] = GROUND;
+		game->player_pos.p_position.x = new_x;
+		map->tab[new_x][game->player_pos.p_position.y] = PLAYER;
 		game->count_step++;
 		printf("Nouvelles coordonnées : x=%d, y=%d\n", new_x, new_y);
 		printf("Contenu de la case : %c\n", map->tab[new_y][new_x]);
