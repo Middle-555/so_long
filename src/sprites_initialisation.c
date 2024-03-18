@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 23:16:03 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/18 13:25:59 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/18 18:35:13 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,30 +39,30 @@ void	init_sprites(t_so_long *game, t_sprites *sprites)
 		map_error("Couldn't load the 'ground' XPM.");
 }
 
-void	put_sprite_on_screen(t_so_long *game, t_map *map, t_sprites *sprites)
+void	put_sprite_on_screen(t_so_long *game, t_sprites *sprites)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (map->tab[i])
+	while (game->map.tab[i])
 	{
 		j = 0;
-		while (map->tab[i][j])
+		while (game->map.tab[i][j])
 		{
-			if (map->tab[i][j] == WALL)
+			if (game->map.tab[i][j] == WALL)
 				mlx_put_image_to_window(game->mlx, game->window, sprites->wall,
 					j * 96, i * 96);
-			else if (map->tab[i][j] == COLLECT)
+			else if (game->map.tab[i][j] == COLLECT)
 				mlx_put_image_to_window(game->mlx, game->window,
 					sprites->collectible, j * 96, i * 96);
-			else if (map->tab[i][j] == EXIT)
+			else if (game->map.tab[i][j] == EXIT)
 				mlx_put_image_to_window(game->mlx, game->window, sprites->exit,
 					j * 96, i * 96);
-			else if (map->tab[i][j] == PLAYER)
+			else if (game->map.tab[i][j] == PLAYER)
 				mlx_put_image_to_window(game->mlx, game->window,
 					sprites->player, j * 96, i * 96);
-			else if (map->tab[i][j] == GROUND)
+			else if (game->map.tab[i][j] == GROUND)
 				mlx_put_image_to_window(game->mlx, game->window,
 					sprites->ground, j * 96, i * 96);
 			j++;

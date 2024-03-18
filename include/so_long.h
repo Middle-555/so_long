@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/18 13:28:21 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/18 18:33:33 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ typedef struct s_so_long
 {
 	t_player_position	player_pos;
 	t_sprites			sprite;
-	t_map				*map;
+	t_map				map;
 	void				*mlx;
 	void				*window;
 	void				*img;
@@ -95,31 +95,30 @@ typedef struct s_so_long
 }						t_so_long;
 
 // Function prototypes
-int						input_handler(int keycode, t_so_long *game, t_map *map);
-int						player_move_up(t_so_long *game, t_map *map);
-int						player_move_down(t_so_long *game, t_map *map);
-int						player_move_right(t_so_long *game, t_map *map);
-int						player_move_left(t_so_long *game, t_map *map);
-int						map_parser(t_map *map);
+int						input_handler(int keycode, t_so_long *game);
+int						player_move_up(t_so_long *game);
+int						player_move_down(t_so_long *game);
+int						player_move_right(t_so_long *game);
+int						player_move_left(t_so_long *game);
+int						map_parser(t_so_long *game);
 void					fill_map(t_so_long *game, const char *path);
 void					alloc_map(t_so_long *game);
-int						check_wall_error(t_map *map);
-void					create_game_window(t_so_long *game, t_map *map);
+int						check_wall_error(t_so_long *game);
+void					create_game_window(t_so_long *game);
 size_t					ft_size_line(char *str);
 int						check_ber_format(char *str);
 void					map_error(char *str);
 char					*ft_strjoin_n(char *s1, char *s2);
 void					init_sprites(t_so_long *game, t_sprites *sprites);
-void					put_sprite_on_screen(t_so_long *game, t_map *map,
-							t_sprites *sprites);
+void					put_sprite_on_screen(t_so_long *game, t_sprites *sprites);
 int						ft_total_len(char *path);
-int						map_stock(t_map *map);
-void					free_tab(t_map *map);
-int						not_rectangular(t_map *map);
-int						not_enough_collectible(t_map *map);
-int						not_enough_exit(t_map *map);
-int						check_player(t_map *map, t_so_long *game);
-int						wall_checker(t_map *map);
-int						check_last_line(t_map *map);
+int						map_stock(t_so_long *game);
+void					free_tab(t_so_long *game);
+int						not_rectangular(t_so_long *game);
+int						not_enough_collectible(t_so_long *game);
+int						not_enough_exit(t_so_long *game);
+int						check_player(t_so_long *game);
+int						wall_checker(t_so_long *game);
+int						check_last_line(t_so_long *game);
 
 #endif // SO_LONG_H//

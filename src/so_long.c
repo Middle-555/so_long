@@ -6,13 +6,13 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:49 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/18 13:28:07 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/18 18:45:49 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	map_stock(t_map *map)
+int	map_stock(t_so_long *game)
 {
 	int		len;
 	int		i;
@@ -20,28 +20,28 @@ int	map_stock(t_map *map)
 
 	i = 0;
 	c = 'c';
-	len = ft_total_len(map->path);
-	map->line = malloc(sizeof(char) * (len + 1));
-	if (!map->line)
+	len = ft_total_len(game->map.path);
+	game->map.line = malloc(sizeof(char) * (len + 1));
+	if (!game->map.line)
 		return (0);
-	map->fd = open(map->path, O_RDONLY);
-	while (read(map->fd, &c, 1) != '\0')
+	game->map.fd = open(game->map.path, O_RDONLY);
+	while (read(game->map.fd, &c, 1) != '\0')
 	{
-		map->line[i] = c;
+		game->map.line[i] = c;
 		i++;
 	}
-	map->line[i] = '\0';
-	map->tab = ft_split(map->line, '\n');
-	free(map->line);
-	close(map->fd);
+	game->map.line[i] = '\0';
+	game->map.tab = ft_split(game->map.line, '\n');
+	free(game->map.line);
+	close(game->map.fd);
 	return (0);
 }
 
-void	create_game_window(t_so_long *game, t_map *map)
+void	create_game_window(t_so_long *game)
 {
 	if (game->mlx == NULL)
 		return ;
-	game->window = mlx_new_window(game->mlx, map->width * 96, map->height * 96,
+	game->window = mlx_new_window(game->mlx, game->map.width * 96, game->map.height * 96,
 			"So_long");
 	if (game->window == NULL)
 	{

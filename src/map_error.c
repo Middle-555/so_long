@@ -6,33 +6,35 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:04:39 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/15 19:10:42 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/18 18:41:53 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
 //Check is the map is rectangular.
-int	not_rectangular(t_map *map)
+int	not_rectangular(t_so_long *game)
 {
 	size_t	i;
 	size_t	len;
 
 	i = 0;
-	len = ft_strlen(map->tab[i]);
-	while (map->tab[i])
+	len = ft_strlen(game->map.tab[i]);
+	while (game->map.tab[i])
 	{
-		if (len != ft_strlen(map->tab[i]))
+		if (len != ft_strlen(game->map.tab[i]))
 			map_error("The map need to be rectangular.");
 		i++;
 	}
-	map->width = len;
-	map->height = i;
+	game->map.width = len;
+	game->map.height = i;
+	ft_printf("%d  w\n ", game->map.width);
+	ft_printf("%d  h\n ", game->map.height);
 	return (0);
 }
 
 // Check if there is enough collectible to play the game.
-int	not_enough_collectible(t_map *map)
+int	not_enough_collectible(t_so_long *game)
 {
 	int	i;
 	int	j;
@@ -40,12 +42,12 @@ int	not_enough_collectible(t_map *map)
 
 	i = 0;
 	collectible = 0;
-	while (map->tab[i])
+	while (game->map.tab[i])
 	{
 		j = 0;
-		while (map->tab[i][j])
+		while (game->map.tab[i][j])
 		{
-			if (map->tab[i][j] == COLLECT)
+			if (game->map.tab[i][j] == COLLECT)
 				collectible++;
 			j++;
 		}
@@ -57,7 +59,7 @@ int	not_enough_collectible(t_map *map)
 }
 
 // Check if there is 1 exit.
-int	not_enough_exit(t_map *map)
+int	not_enough_exit(t_so_long *game)
 {
 	int	i;
 	int	j;
@@ -65,12 +67,12 @@ int	not_enough_exit(t_map *map)
 
 	i = 0;
 	exit = 0;
-	while (map->tab[i])
+	while (game->map.tab[i])
 	{
 		j = 0;
-		while (map->tab[i][j])
+		while (game->map.tab[i][j])
 		{
-			if (map->tab[i][j] == EXIT)
+			if (game->map.tab[i][j] == EXIT)
 				exit++;
 			j++;
 		}
@@ -82,7 +84,7 @@ int	not_enough_exit(t_map *map)
 }
 
 // Check if there is 
-int	check_player(t_map *map, t_so_long *game)
+int	check_player(t_so_long *game)
 {
 	int			i;
 	int			j;
@@ -90,12 +92,12 @@ int	check_player(t_map *map, t_so_long *game)
 
 	i = 0;
 	player_count = 0;
-	while (map->tab[i])
+	while (game->map.tab[i])
 	{
 		j = 0;
-		while (map->tab[i][j])
+		while (game->map.tab[i][j])
 		{
-			if (map->tab[i][j] == PLAYER)
+			if (game->map.tab[i][j] == PLAYER)
 			{
 				player_count++;
 				game->player_pos.p_position.y = i;
@@ -112,7 +114,7 @@ int	check_player(t_map *map, t_so_long *game)
 	return (0);
 }
 
-int	wall_checker(t_map *map)
+int	wall_checker(t_so_long *game)
 {
 	int	i;
 	int	j;
@@ -120,17 +122,17 @@ int	wall_checker(t_map *map)
 
 	i = 0;
 	j = 0;
-	len = ft_strlen(map->tab[i]);
-	while (map->tab[i])
+	len = ft_strlen(game->map.tab[i]);
+	while (game->map.tab[i])
 	{
 		j = 0;
-		while (map->tab[0][j])
+		while (game->map.tab[0][j])
 		{
-			if (map->tab[0][j] != WALL)
+			if (game->map.tab[0][j] != WALL)
 				map_error("need wall.");
 			j++;
 		}
-		if (map->tab[i][0] != WALL && map->tab[i][len] != WALL)
+		if (game->map.tab[i][0] != WALL && game->map.tab[i][len] != WALL)
 			map_error("Need wall.");
 		i++;
 	}

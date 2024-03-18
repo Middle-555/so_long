@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:42:03 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/18 16:57:42 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/18 18:47:40 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,10 @@ int	exit_game(t_so_long *game)
 
 int	main(int argc, char **argv)
 {
-	t_map				map;
 	t_so_long			game;
 	t_sprites			sprites;
 
-	map.path = argv[1];
+	game.map.path = argv[1];
 	if (argc != 2)
 	{
 		ft_printf("Usage: ./so_short <map_file.ber>\n");
@@ -34,16 +33,17 @@ int	main(int argc, char **argv)
 	}
 	game.window = NULL;
 	game.mlx = mlx_init();
-	map_stock(&map);
-	not_enough_exit(&map);
-	check_player(&map, &game);
-	not_enough_collectible(&map);
-	not_rectangular(&map);
-	wall_checker(&map);
-	check_last_line(&map);
+	map_stock(&game);
+	not_rectangular(&game);
+	not_enough_exit(&game);
+	check_player(&game);
+	not_enough_collectible(&game);
+	//not_rectangular(&map);
+	wall_checker(&game);
+	check_last_line(&game);
 	init_sprites(&game, &sprites);
-	create_game_window(&game, &map);
-	put_sprite_on_screen(&game, &map, &sprites);
+	create_game_window(&game);
+	put_sprite_on_screen(&game, &sprites);
 	mlx_hook(game.window, 2, 1 << 0, &input_handler, &game);
 	mlx_hook(game.window, 2, 1L << 0, &input_handler, &game);
 	mlx_loop(game.mlx);
