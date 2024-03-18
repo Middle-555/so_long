@@ -70,8 +70,8 @@ void	free_game(t_so_long *game)
 		mlx_destroy_display(game->mlx);
 	if (game->mlx)
 		free(game->mlx);
-	if (game->map)
-		free_tab(game->map);
+	if (game->map.tab)
+		free_tab(game->map.tab);
 }
 
 int	ft_total_len(char *path)
