@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:04:39 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/18 18:41:53 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/19 16:19:10 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,6 @@ int	check_player(t_so_long *game)
 				player_count++;
 				game->player_pos.p_position.y = i;
 				game->player_pos.p_position.x = j;
-				ft_printf("%d\n", game->player_pos.p_position.y);
-				ft_printf("%d\n", game->player_pos.p_position.x);
 			}
 			j++;
 		}

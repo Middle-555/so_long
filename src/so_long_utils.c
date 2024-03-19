@@ -38,7 +38,6 @@ void	free_tab(t_so_long *game)
 	int	i;
 
 	i = 0;
-
 	if (game && game->map.tab)
 	{
 		while (game->map.tab[i])
@@ -70,9 +69,9 @@ void	free_game(t_so_long *game)
 		mlx_destroy_display(game->mlx);
 	if (game->mlx)
 		free(game->mlx);
-	//if (game->game.tab)
-		//free_tab(game->game.tab);
 }
+//if (game->game.tab)
+		//free_tab(game->game.tab);
 
 int	ft_total_len(char *path)
 {

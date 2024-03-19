@@ -6,12 +6,11 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:23:43 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/19 15:44:02 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/19 16:18:45 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
-
 
 int	player_move_up(t_so_long *game)
 {
@@ -22,18 +21,17 @@ int	player_move_up(t_so_long *game)
 		&& game->map.tab[new_y][game->player_pos.p_position.x] != WALL
 		&& game->map.tab[new_y][game->player_pos.p_position.x] != EXIT)
 	{
-		game->map.tab[game->player_pos.p_position.y][game->player_pos.p_position.x] = GROUND;
+		game->map.tab[game->player_pos.p_position.y]
+		[game->player_pos.p_position.x] = GROUND;
 		mlx_put_image_to_window(game->mlx, game->window, game->sprite.ground,
-		 	game->player_pos.p_position.x * 96,
-		 	game->player_pos.p_position.y * 96);
+			game->player_pos.p_position.x * 96,
+			game->player_pos.p_position.y * 96);
 		game->player_pos.p_position.y = new_y;
 		game->map.tab[new_y][game->player_pos.p_position.x] = PLAYER;
 		mlx_put_image_to_window(game->mlx, game->window, game->sprite.player,
-		 	game->player_pos.p_position.x * 96,
-		 	new_y * 96);
-		//put_sprite_on_screen(game);
+			game->player_pos.p_position.x * 96,
+			new_y * 96);
 		game->count_step++;
-		aff_tab(game);
 	}
 	return (0);
 }
@@ -47,15 +45,16 @@ int	player_move_down(t_so_long *game)
 		&& game->map.tab[new_y][game->player_pos.p_position.x] != WALL
 		&& game->map.tab[new_y][game->player_pos.p_position.x] != EXIT)
 	{
-		game->map.tab[game->player_pos.p_position.y][game->player_pos.p_position.x] = GROUND;
+		game->map.tab[game->player_pos.p_position.y]
+		[game->player_pos.p_position.x] = GROUND;
 		mlx_put_image_to_window(game->mlx, game->window, game->sprite.ground,
-		 	game->player_pos.p_position.x * 96,
-		 	game->player_pos.p_position.y * 96);
+			game->player_pos.p_position.x * 96,
+			game->player_pos.p_position.y * 96);
 		game->player_pos.p_position.y = new_y;
 		game->map.tab[new_y][game->player_pos.p_position.x] = PLAYER;
 		mlx_put_image_to_window(game->mlx, game->window, game->sprite.player,
-		 	game->player_pos.p_position.x * 96,
-		 	new_y * 96);
+			game->player_pos.p_position.x * 96,
+			new_y * 96);
 		game->count_step++;
 	}
 	return (0);
@@ -70,15 +69,16 @@ int	player_move_right(t_so_long *game)
 		&& game->map.tab[game->player_pos.p_position.y][new_x] != WALL
 		&& game->map.tab[game->player_pos.p_position.y][new_x] != EXIT)
 	{
-		game->map.tab[game->player_pos.p_position.y][game->player_pos.p_position.x] = GROUND;
+		game->map.tab[game->player_pos.p_position.y]
+		[game->player_pos.p_position.x] = GROUND;
 		mlx_put_image_to_window(game->mlx, game->window, game->sprite.ground,
-		 	game->player_pos.p_position.x * 96,
-		 	game->player_pos.p_position.y * 96);
+			game->player_pos.p_position.x * 96,
+			game->player_pos.p_position.y * 96);
 		game->player_pos.p_position.x = new_x;
 		game->map.tab[game->player_pos.p_position.y][new_x] = PLAYER;
 		mlx_put_image_to_window(game->mlx, game->window, game->sprite.player,
-		 	game->player_pos.p_position.x * 96,
-		 	game->player_pos.p_position.y * 96);
+			game->player_pos.p_position.x * 96,
+			game->player_pos.p_position.y * 96);
 		game->count_step++;
 	}
 	return (0);
@@ -93,17 +93,17 @@ int	player_move_left(t_so_long *game)
 		&& game->map.tab[game->player_pos.p_position.y][new_x] != WALL
 		&& game->map.tab[game->player_pos.p_position.y][new_x] != EXIT)
 	{
-		game->map.tab[game->player_pos.p_position.y][game->player_pos.p_position.x] = GROUND;
+		game->map.tab[game->player_pos.p_position.y]
+		[game->player_pos.p_position.x] = GROUND;
 		mlx_put_image_to_window(game->mlx, game->window, game->sprite.ground,
-		 	game->player_pos.p_position.x * 96,
-		 	game->player_pos.p_position.y * 96);
+			game->player_pos.p_position.x * 96,
+			game->player_pos.p_position.y * 96);
 		game->player_pos.p_position.x = new_x;
 		game->map.tab[game->player_pos.p_position.y][new_x] = PLAYER;
 		mlx_put_image_to_window(game->mlx, game->window, game->sprite.player,
-		 	game->player_pos.p_position.x * 96,
-		 	game->player_pos.p_position.y * 96);
+			game->player_pos.p_position.x * 96,
+			game->player_pos.p_position.y * 96);
 		game->count_step++;
 	}
 	return (0);
 }
-

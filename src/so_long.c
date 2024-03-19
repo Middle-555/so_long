@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:49 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/19 14:09:40 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/19 16:21:20 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	create_game_window(t_so_long *game)
 		free(game->mlx);
 		return ;
 	}
-	// mlx_loop(game->mlx);
 }
 
 void	aff_tab(t_so_long *game)
