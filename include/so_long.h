@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/19 16:16:04 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/19 16:47:08 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,5 +122,6 @@ int						wall_checker(t_so_long *game);
 int						check_last_line(t_so_long *game);
 void					aff_tab(t_so_long *game);
 void					refresh(t_so_long *game, int i, int j);
+int						move_ok(t_so_long *game, int new_x, int new_y);
 
 #endif // SO_LONG_H//

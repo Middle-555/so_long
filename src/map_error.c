@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:04:39 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/19 16:19:10 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/19 16:58:35 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,22 +38,21 @@ int	not_enough_collectible(t_so_long *game)
 {
 	int	i;
 	int	j;
-	int	collectible;
 
 	i = 0;
-	collectible = 0;
+	game->count_collectible = 0;
 	while (game->map.tab[i])
 	{
 		j = 0;
 		while (game->map.tab[i][j])
 		{
 			if (game->map.tab[i][j] == COLLECT)
-				collectible++;
+				game->count_collectible++;
 			j++;
 		}
 		i++;
 	}
-	if (collectible < 1)
+	if (game->count_collectible < 1)
 		map_error("Please put at least 1 collectible");
 	return (0);
 }
