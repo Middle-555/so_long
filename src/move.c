@@ -6,14 +6,14 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:23:43 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/19 14:38:13 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/19 15:12:17 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
 
-int	player_move_up(t_so_long *game, t_sprites *sprites)
+int	player_move_up(t_so_long *game)
 {
 	int	new_y;
 
@@ -23,15 +23,15 @@ int	player_move_up(t_so_long *game, t_sprites *sprites)
 		&& game->map.tab[new_y][game->player_pos.p_position.x] != EXIT)
 	{
 		game->map.tab[game->player_pos.p_position.y][game->player_pos.p_position.x] = GROUND;
-		// mlx_put_image_to_window(game->mlx, game->window, game->sprite.ground,
-		// 	game->player_pos.p_position.x * 96,
-		// 	game->player_pos.p_position.y * 96);
+		mlx_put_image_to_window(game->mlx, game->window, game->sprite.ground,
+		 	game->player_pos.p_position.x * 96,
+		 	game->player_pos.p_position.y * 96);
 		game->player_pos.p_position.y = new_y;
 		game->map.tab[new_y][game->player_pos.p_position.x] = PLAYER;
-		// mlx_put_image_to_window(game->mlx, game->window, game->sprite.player,
-		// 	game->player_pos.p_position.x * 96,
-		// 	new_y * 96);
-		put_sprite_on_screen(game, sprites);
+		mlx_put_image_to_window(game->mlx, game->window, game->sprite.player,
+		 	game->player_pos.p_position.x * 96,
+		 	new_y * 96);
+		put_sprite_on_screen(game);
 		game->count_step++;
 		aff_tab(game);
 	}
