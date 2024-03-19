@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/18 21:53:55 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/19 14:12:01 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,8 @@ typedef struct s_so_long
 }						t_so_long;
 
 // Function prototypes
-int						input_handler(int keycode, t_so_long *game, t_sprites *sprites);
-int						player_move_up(t_so_long *game, t_sprites *sprites);
+int						input_handler(int keycode, t_so_long *game);
+int						player_move_up(t_so_long *game);
 int						player_move_down(t_so_long *game);
 int						player_move_right(t_so_long *game);
 int						player_move_left(t_so_long *game);
@@ -120,5 +120,6 @@ int						not_enough_exit(t_so_long *game);
 int						check_player(t_so_long *game);
 int						wall_checker(t_so_long *game);
 int						check_last_line(t_so_long *game);
+void					aff_tab(t_so_long *game);
 
 #endif // SO_LONG_H//

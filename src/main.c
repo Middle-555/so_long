@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:42:03 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/18 18:47:40 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/19 14:09:52 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	main(int argc, char **argv)
 	//not_rectangular(&map);
 	wall_checker(&game);
 	check_last_line(&game);
+	aff_tab(&game);
 	init_sprites(&game, &sprites);
 	create_game_window(&game);
 	put_sprite_on_screen(&game, &sprites);
@@ -49,7 +50,7 @@ int	main(int argc, char **argv)
 	mlx_loop(game.mlx);
 	mlx_loop_hook(game.mlx, &input_handler, &game);
 	//mlx_hook(game.window, 17, 0, &exit_game, NULL);
-	mlx_loop(game.mlx);
+	//mlx_loop(game.mlx);
 	//mlx_hook(game.window, 2, 1 << 0, &input_handler, &game);
 	//mlx_hook(game.window, 2, 1L << 0, &input_handler, &game);
 }

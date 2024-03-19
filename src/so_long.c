@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:49 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/18 18:45:49 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/19 14:09:40 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,25 @@ void	create_game_window(t_so_long *game)
 {
 	if (game->mlx == NULL)
 		return ;
-	game->window = mlx_new_window(game->mlx, game->map.width * 96, game->map.height * 96,
-			"So_long");
+	game->window = mlx_new_window(game->mlx, game->map.width * 96,
+			game->map.height * 96, "So_long");
 	if (game->window == NULL)
 	{
 		free(game->mlx);
 		return ;
 	}
-	//mlx_loop(game->mlx);
+	// mlx_loop(game->mlx);
+}
+
+void	aff_tab(t_so_long *game)
+{
+	int	i;
+
+	i = 0;
+	while (game->map.tab[i])
+	{
+		ft_printf("%s\n", game->map.tab[i]);
+		i++;
+	}
+	ft_printf("\n");
 }
