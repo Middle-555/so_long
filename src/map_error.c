@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:04:39 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/19 16:58:35 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/20 00:37:27 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,15 @@ int	not_enough_exit(t_so_long *game)
 		while (game->map.tab[i][j])
 		{
 			if (game->map.tab[i][j] == EXIT)
+			{
 				exit++;
+				game->end.x_end = i;
+				game->end.y_end = j;
+				ft_printf("%d y test\n", i);
+                		ft_printf("%d x  test\n", j);
+                		ft_printf("%d x \n", game->end.x_end);
+                		ft_printf("%d y \n", game->end.y_end);
+			}
 			j++;
 		}
 		i++;
