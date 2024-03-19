@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/19 16:47:08 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/19 18:37:28 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ typedef struct s_so_long
 	t_player_position	player_pos;
 	t_sprites			sprite;
 	t_map				map;
+	t_position			end;
 	void				*mlx;
 	void				*window;
 	void				*img;
@@ -123,5 +124,7 @@ int						check_last_line(t_so_long *game);
 void					aff_tab(t_so_long *game);
 void					refresh(t_so_long *game, int i, int j);
 int						move_ok(t_so_long *game, int new_x, int new_y);
+void					game_success(t_so_long *game);
+void					free_game(t_so_long *game);
 
 #endif // SO_LONG_H//
