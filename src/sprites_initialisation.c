@@ -12,7 +12,7 @@
 
 #include "../include/so_long.h"
 
-void	init_sprite(t_so_long *game)
+void	init_sprites(t_so_long *game)
 {
 	int	size;
 
