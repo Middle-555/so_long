@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 14:49:42 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/20 17:24:28 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/20 17:43:10 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@ int	input_handler(int keycode, t_so_long *game)
 	if (keycode == KEY_Q || keycode == KEY_LEFT)
 		player_move_left(game);
 	if (keycode == KEY_ESC)
-		exit(0);
+	{
+		ft_printf("%s\n", "You exited the game with the ESC key.");
+		free_game(game);
+	}
 	return (0);
 }
-
-//exit_game(game);
