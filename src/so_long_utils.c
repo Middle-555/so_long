@@ -40,16 +40,13 @@ void	free_tab(t_so_long *game)
 	i = 0;
 	if (game && game->map.tab)
 	{
-		ft_printf("%s arthur sale suceuse\n", game->map.tab[i]);
 		while (game->map.tab[i])
 		{
 			free(game->map.tab[i]);
 			i++;
 		}
-		ft_printf("%s arthur sale suceuse bis\n", game->map.tab[i]);
 	}
 	free (game->map.tab);
-	ft_printf("%s arthur sale suceuse bisbis\n", game->map.tab[i]);
 }
 
 void	free_game(t_so_long *game)

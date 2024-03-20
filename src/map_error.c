@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:04:39 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/20 11:28:32 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/20 17:23:31 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ int	not_rectangular(t_so_long *game)
 	}
 	game->map.width = len;
 	game->map.height = i;
-	ft_printf("%d  w\n ", game->map.width);
-	ft_printf("%d  h\n ", game->map.height);
 	return (0);
 }
 
@@ -76,10 +74,6 @@ int	not_enough_exit(t_so_long *game)
 				exit++;
 				game->end.x_end = i;
 				game->end.y_end = j;
-				ft_printf("%d y test\n", i);
-                		ft_printf("%d x  test\n", j);
-                		ft_printf("%d x \n", game->end.x_end);
-                		ft_printf("%d y \n", game->end.y_end);
 			}
 			j++;
 		}

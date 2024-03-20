@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:42:03 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/20 00:31:44 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/20 17:24:37 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int	main(int argc, char **argv)
 	//not_rectangular(&map);
 	wall_checker(&game);
 	check_last_line(&game);
-	aff_tab(&game);
 	init_sprites(&game);
 	create_game_window(&game);
 	put_sprite_on_screen(&game);
