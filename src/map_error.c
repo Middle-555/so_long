@@ -6,7 +6,11 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:04:39 by kpourcel          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2024/03/20 00:37:27 by kpourcel         ###   ########.fr       */
+=======
+/*   Updated: 2024/03/19 18:50:52 by kpourcel         ###   ########.fr       */
+>>>>>>> main
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +77,7 @@ int	not_enough_exit(t_so_long *game)
 		{
 			if (game->map.tab[i][j] == EXIT)
 			{
+<<<<<<< HEAD
 				exit++;
 				game->end.x_end = i;
 				game->end.y_end = j;
@@ -80,6 +85,15 @@ int	not_enough_exit(t_so_long *game)
                 		ft_printf("%d x  test\n", j);
                 		ft_printf("%d x \n", game->end.x_end);
                 		ft_printf("%d y \n", game->end.y_end);
+=======
+				//game->end.x = i;
+				//game->end.y = j;
+				//ft_printf("%d y \n", i);
+				//ft_printf("%d x \n", j);
+				//ft_printf("%d x \n", game->end.x);
+				//ft_printf("%d y \n", game->end.y);		
+				exit++;
+>>>>>>> main
 			}
 			j++;
 		}

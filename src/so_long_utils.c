@@ -51,8 +51,8 @@ void	free_tab(t_so_long *game)
 
 void	free_game(t_so_long *game)
 {
-	if (!game)
-		return ;
+	//if (!game)
+		//return ;
 	if (game->sprite.player)
 		mlx_destroy_image(game->mlx, game->sprite.player);
 	if (game->sprite.wall)
@@ -70,8 +70,6 @@ void	free_game(t_so_long *game)
 	if (game->mlx)
 		free(game->mlx);
 }
-//if (game->game.tab)
-		//free_tab(game->game.tab);
 
 int	ft_total_len(char *path)
 {
