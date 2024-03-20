@@ -6,11 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:23:43 by kpourcel          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2024/03/20 00:57:39 by kpourcel         ###   ########.fr       */
-=======
-/*   Updated: 2024/03/19 18:49:21 by kpourcel         ###   ########.fr       */
->>>>>>> main
+/*   Updated: 2024/03/20 11:28:32 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,15 +66,9 @@ int	player_move_down(t_so_long *game)
 			game->player_pos.p_position.x * 96,
 			new_y * 96);
 		game->count_step++;
-<<<<<<< HEAD
 		//if (game->player_pos.p_position.y == game->end.y_end
 			//&& game->player_pos.p_position.x == game->end.y_end)
 			//game_success(game);
-=======
-		/*if (game->player_pos.p_position.y == game->end.y
-			&& game->player_pos.p_position.x == game->end.x)
-			game_success(game);*/
->>>>>>> main
 	}
 	return (0);
 }
@@ -107,15 +97,9 @@ int	player_move_right(t_so_long *game)
 			game->player_pos.p_position.x * 96,
 			game->player_pos.p_position.y * 96);
 		game->count_step++;
-<<<<<<< HEAD
 	//if (game->player_pos.p_position.y == game->end.y_end
 			//&& game->player_pos.p_position.x == game->end.y_end)
 		//	game_success(game);
-=======
-		/*if (game->player_pos.p_position.y == game->end.y
-			&& game->player_pos.p_position.x == game->end.x)
-			game_success(game);*/
->>>>>>> main
 	}
 	return (0);
 }

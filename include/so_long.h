@@ -6,11 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2024/03/19 22:33:52 by kpourcel         ###   ########.fr       */
-=======
-/*   Updated: 2024/03/19 18:37:28 by kpourcel         ###   ########.fr       */
->>>>>>> main
+/*   Updated: 2024/03/20 11:27:43 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,9 +128,5 @@ void					refresh(t_so_long *game, int i, int j);
 int						move_ok(t_so_long *game, int new_x, int new_y);
 void					game_success(t_so_long *game);
 void					free_game(t_so_long *game);
-<<<<<<< HEAD
-
-=======
->>>>>>> main
 
 #endif // SO_LONG_H//
