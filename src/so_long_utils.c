@@ -40,19 +40,22 @@ void	free_tab(t_so_long *game)
 	i = 0;
 	if (game && game->map.tab)
 	{
+		ft_printf("%s arthur sale suceuse\n", game->map.tab[i]);
 		while (game->map.tab[i])
 		{
 			free(game->map.tab[i]);
 			i++;
 		}
+		ft_printf("%s arthur sale suceuse bis\n", game->map.tab[i]);
 	}
 	free (game->map.tab);
+	ft_printf("%s arthur sale suceuse bisbis\n", game->map.tab[i]);
 }
 
 void	free_game(t_so_long *game)
 {
-	//if (!game)
-		//return ;
+	if (!game)
+		return ;
 	if (game->sprite.player)
 		mlx_destroy_image(game->mlx, game->sprite.player);
 	if (game->sprite.wall)
@@ -67,8 +70,9 @@ void	free_game(t_so_long *game)
 		mlx_destroy_window(game->mlx, game->window);
 	if (game->mlx)
 		mlx_destroy_display(game->mlx);
-	if (game->mlx)
-		free(game->mlx);
+	if (game->map.tab)
+		free_tab(game);
+	exit (0);
 }
 
 int	ft_total_len(char *path)

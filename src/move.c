@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:23:43 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/20 11:28:32 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/20 15:25:31 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	player_move_up(t_so_long *game)
 		if (game->map.tab[new_y][game->player_pos.p_position.x] == COLLECT)
 			game->count_collectible--;
 		ft_printf("%d new_y \n", new_y);
-		if (new_y == game->end.y_end
+		if (new_y == game->end.x_end
 			&& game->player_pos.p_position.x == game->end.y_end)
 			game_success(game);
 		game->map.tab[game->player_pos.p_position.y]
@@ -52,7 +52,7 @@ int	player_move_down(t_so_long *game)
 	{
 		if (game->map.tab[new_y][game->player_pos.p_position.x] == COLLECT)
 			game->count_collectible--;
-		if (new_y == game->end.y_end
+		if (new_y == game->end.x_end
 			&& game->player_pos.p_position.x == game->end.y_end)
 			game_success(game);
 		game->map.tab[game->player_pos.p_position.y]
@@ -83,7 +83,7 @@ int	player_move_right(t_so_long *game)
 	{
 		if (game->map.tab[game->player_pos.p_position.y][new_x] == COLLECT)
 			game->count_collectible--;
-		if (game->player_pos.p_position.y == game->end.y_end
+		if (game->player_pos.p_position.y == game->end.x_end
 			&& new_x == game->end.y_end)
 			game_success(game);
 		game->map.tab[game->player_pos.p_position.y]
@@ -114,7 +114,7 @@ int	player_move_left(t_so_long *game)
 	{
 		if (game->map.tab[game->player_pos.p_position.y][new_x] == COLLECT)
 			game->count_collectible--;
-		if (game->player_pos.p_position.y == game->end.y_end
+		if (game->player_pos.p_position.y == game->end.x_end
 			&& new_x == game->end.y_end)
 			game_success(game);
 		game->map.tab[game->player_pos.p_position.y]
