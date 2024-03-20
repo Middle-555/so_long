@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:04:39 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/20 17:23:31 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/20 17:54:11 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	not_rectangular(t_so_long *game)
 	}
 	game->map.width = len;
 	game->map.height = i;
+	game->count_step = 1;
 	return (0);
 }
 
