@@ -6,7 +6,11 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
+<<<<<<< HEAD
+/*   Updated: 2024/03/19 22:33:52 by kpourcel         ###   ########.fr       */
+=======
 /*   Updated: 2024/03/19 18:37:28 by kpourcel         ###   ########.fr       */
+>>>>>>> main
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +57,8 @@ typedef struct s_position
 {
 	int					x;
 	int					y;
+	int					x_end;
+	int					y_end;
 }						t_position;
 
 typedef struct s_player_position
@@ -126,5 +132,9 @@ void					refresh(t_so_long *game, int i, int j);
 int						move_ok(t_so_long *game, int new_x, int new_y);
 void					game_success(t_so_long *game);
 void					free_game(t_so_long *game);
+<<<<<<< HEAD
+
+=======
+>>>>>>> main
 
 #endif // SO_LONG_H//
