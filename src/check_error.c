@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 16:03:01 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/21 19:40:32 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/22 12:24:21 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ int	other_caracter(t_so_long *game)
 		j = 0;
 		while (game->map.tab[i][j])
 		{
-			if (game->map.tab[i][j] != 'C'
-			|| game->map.tab[i][j] != 'P'
-			|| game->map.tab[i][j] != '0'
-			|| game->map.tab[i][j] != '1'
-			|| game->map.tab[i][j] != 'E')
+			if (game->map.tab[i][j] != '1'
+			&& game->map.tab[i][j] != '0'
+			&& game->map.tab[i][j] != 'C'
+			&& game->map.tab[i][j] != 'E'
+			&& game->map.tab[i][j] != 'P')
 				map_error("Please put valid caracter in the map.");
 			j++;
 		}

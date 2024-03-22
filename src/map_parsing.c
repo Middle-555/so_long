@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 17:59:48 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/22 12:05:00 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/22 12:10:59 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ int	map_parser_stock(t_so_long *game)
 	return (0);
 }
 
-void	dfs(t_map **maptest, t_position *pos)
+/*void	dfs(t_map **maptest, t_position *pos)
 {
 	
 }
+*/
