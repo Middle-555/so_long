@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 17:59:48 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/22 16:19:40 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/22 17:12:17 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,14 @@ void	dfs(t_position pos, char **visited, t_so_long *game)
 	if (pos.x < 0 || pos.x >= game->map.height || pos.y < 0
 		|| pos.y >= game->map.width)
 		return ;
-	if (game->map.maptest[pos.x][pos.y] == '2' || visited[pos.x][pos.y] == '2')
+	if (game->map.maptest[pos.x][pos.y] == '1' || visited[pos.x][pos.y] == '1')
 		return ;
-	visited[pos.x][pos.y] = '2';
-	if (game->map.maptest[pos.x][pos.y] == EXIT)
+	visited[pos.x][pos.y] = '1';
+	if (game->map.maptest[pos.x][pos.y] == 'E')
 		game->map.exit_find++;
-	if (game->map.maptest[pos.x][pos.y] == PLAYER)
+	if (game->map.maptest[pos.x][pos.y] == 'P')
 		game->map.player_find++;
-	if (game->map.maptest[pos.x][pos.y] == COLLECT)
+	if (game->map.maptest[pos.x][pos.y] == 'C')
 		game->map.collectible_find++;
 	while (++i < 4)
 		voisins[i] = direction_finder(pos, i);
