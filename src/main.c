@@ -6,13 +6,11 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:42:03 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/22 15:47:16 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/22 17:02:52 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
-
-
 
 int	main(int argc, char **argv)
 {
@@ -33,6 +31,11 @@ int	main(int argc, char **argv)
 	not_enough_collectible(&game);
 	wall_checker(&game);
 	check_last_line(&game);
+	dfs(game.player_pos.p_position, game.map.maptest, &game);
+	if (game.map.collectible_find != game.count_collectible
+		|| game.map.player_find != 1
+		|| game.map.exit_find != 1)
+		map_error("Cant reach exit or all collectible", &game);
 	game.window = NULL;
 	game.mlx = mlx_init();
 	init_sprites(&game);

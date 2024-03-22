@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/22 15:47:16 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/22 16:20:12 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ typedef struct s_map
 	int					height;
 	int					width;
 	int					collectible_find;
+	int					exit_find;
+	int					player_find;
 }						t_map;
 
 typedef struct s_sprites
@@ -131,9 +133,9 @@ int						move_ok(t_so_long *game, int new_x, int new_y);
 void					game_success(t_so_long *game);
 void					free_game(t_so_long *game);
 int						map_parser_stock(t_so_long *game);
-//void					dfs(t_so_long *game, t_dfs *dfs_map, int x, int y);
 int						other_caracter(t_so_long *game);
 int						exit_game(t_so_long *game);
-
+t_position				direction_finder(t_position pos, int dir);
+void					dfs(t_position pos, char **visited, t_so_long *game);
 
 #endif // SO_LONG_H//
