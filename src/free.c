@@ -41,20 +41,8 @@ void	free_game(t_so_long *game)
 	exit (0);
 }
 
-void	free_parser(t_so_long *game)
+int	exit_game(t_so_long *game)
 {
-	if (!game)
-		return ;
-	if (game->sprite.player)
-		mlx_destroy_image(game->mlx, game->sprite.player);
-	if (game->sprite.wall)
-		mlx_destroy_image(game->mlx, game->sprite.wall);
-	if (game->sprite.ground)
-		mlx_destroy_image(game->mlx, game->sprite.ground);
-	if (game->sprite.collectible)
-		mlx_destroy_image(game->mlx, game->sprite.collectible);
-	if (game->sprite.exit)
-		mlx_destroy_image(game->mlx, game->sprite.exit);
-	if (game->map.tab)
-		free_tab(game);
+	free_game(game);
+	return(0);
 }

@@ -6,17 +6,13 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:42:03 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/22 15:12:41 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/22 15:47:16 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	exit_game(t_so_long *game)
-{
-	free_game(game);
-	return(0);
-}
+
 
 int	main(int argc, char **argv)
 {
@@ -46,8 +42,4 @@ int	main(int argc, char **argv)
 	mlx_hook(game.window, 17, (1L << 0), &exit_game, &game);
 	mlx_loop(game.mlx);
 	mlx_loop_hook(game.mlx, &input_handler, &game);
-	//mlx_hook(game.window, 17, 0, &exit_game, NULL);
-	//mlx_loop(game.mlx);
-	//mlx_hook(game.window, 2, 1 << 0, &input_handler, &game);
-	//mlx_hook(game.window, 2, 1L << 0, &input_handler, &game);
 }

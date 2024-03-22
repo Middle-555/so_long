@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/22 13:04:52 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/22 15:47:16 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,7 @@ void					free_game(t_so_long *game);
 int						map_parser_stock(t_so_long *game);
 //void					dfs(t_so_long *game, t_dfs *dfs_map, int x, int y);
 int						other_caracter(t_so_long *game);
-void					free_parser(t_so_long *game);
+int						exit_game(t_so_long *game);
 
 
 #endif // SO_LONG_H//
