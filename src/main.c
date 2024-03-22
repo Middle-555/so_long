@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:42:03 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/22 19:33:30 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/22 21:52:07 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,15 @@ int	main(int argc, char **argv)
 	game.map.path = argv[1];
 	check_ber_format(game.map.path, &game);
 	map_stock(&game);
+	wall_checker(&game);
 	not_rectangular(&game);
 	not_enough_exit(&game);
 	check_player(&game);
 	other_caracter(&game);
 	not_enough_collectible(&game);
-	wall_checker(&game);
-	check_last_line(&game);
 	aff_tab(&game);
+	//wall_checker(&game);
+	check_last_line(&game);
 	ft_printf("\n");
 	aff_1tab(&game);
 	init_test(&game);
@@ -42,6 +43,7 @@ int	main(int argc, char **argv)
 	print_map(&game, game.map.maptest);
 	ft_printf("collectible find %d\n", game.map.collectible_find);
 	ft_printf("exit find %d\n", game.map.exit_find);
+	ft_printf("collectible count%d\n", game.count_collectible);
 	if (game.map.collectible_find != game.count_collectible
 		|| game.map.player_find != 1
 		|| game.map.exit_find != 1)

@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 17:59:48 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/22 19:47:00 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/22 22:00:42 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ t_position	direction_finder(t_position pos, int dir)
 
 void	init_test(t_so_long *game)
 {
-
 	game->map.exit_find = 0;
 	game->map.player_find = 0;
 	game->map.collectible_find = 0;
@@ -81,26 +80,24 @@ void	print_map(t_so_long *game, char **map)
 	}
 }
 
-
 void	dfs(t_position pos, char **visited, t_so_long *game)
 {
 	t_position	voisins[4];
 	int			i;
 
 	i = -1;
-	if (pos.y < 0 || pos.y >= game->map.width || pos.x < 0
-		|| pos.x >= game->map.height)
+	if (pos.y < 0 || pos.x >= game->map.width || pos.x < 0
+		|| pos.y >= game->map.height)
 		return ;
-	if (game->map.tab[pos.x][pos.y] == '1' || visited[pos.x][pos.y] == '1')
+	if (game->map.tab[pos.y][pos.x] == '1' || visited[pos.y][pos.x] == '1')
 		return ;
-	visited[pos.x][pos.y] = '1';
-	if (game->map.tab[pos.x][pos.y] == 'P')
+	visited[pos.y][pos.x] = '1';
+	if (game->map.tab[pos.y][pos.x] == 'P')
 		game->map.player_find++;
-	if (game->map.tab[pos.x][pos.y] == 'C')
+	if (game->map.tab[pos.y][pos.x] == 'C')
 		game->map.collectible_find++;
-	if (game->map.tab[pos.x][pos.y] == 'E')
+	if (game->map.tab[pos.y][pos.x] == 'E')
 		game->map.exit_find++;
-	//visited[pos.y][pos.x] = '1';
 	while (++i < 4)
 		voisins[i] = direction_finder(pos, i);
 	i = -1;
