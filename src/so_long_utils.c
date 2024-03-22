@@ -14,11 +14,13 @@
 
 int	check_ber_format(char *str, t_so_long *game)
 {
-	size_t	size;
+	int	size;
 
-	size = ft_strlen(str - 1);
+	size = ft_strlen(game->map.path) - 1;
 	if (str[size] == 'r' && str[size - 1] == 'e' && str[size - 2] == 'b'
 		&& str[size - 3] == '.')
+		return (0);
+	else
 	{
 		map_error("Please use a game with the .ber extension", game);
 		return (1);
