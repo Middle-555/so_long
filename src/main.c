@@ -6,19 +6,18 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:42:03 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/21 14:39:36 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/21 20:05:17 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-
-int	exit_game(t_so_long *game)
-{
-	(void)game; 
-	exit(0);
-	return (0);
-}
+//int	exit_game(t_so_long *game)
+//{
+//	(void)game; 
+//	exit(0);
+//	return (0);
+//}
 
 int	main(int argc, char **argv)
 {
@@ -36,6 +35,7 @@ int	main(int argc, char **argv)
 	not_rectangular(&game);
 	not_enough_exit(&game);
 	check_player(&game);
+	other_caracter(&game);
 	not_enough_collectible(&game);
 	//not_rectangular(&map);
 	wall_checker(&game);
