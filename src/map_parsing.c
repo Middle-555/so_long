@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 17:59:48 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/22 19:14:03 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/22 19:47:00 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ t_position	direction_finder(t_position pos, int dir)
 		pos.x++;
 	return (pos);
 }
+
 void	init_test(t_so_long *game)
 {
 
