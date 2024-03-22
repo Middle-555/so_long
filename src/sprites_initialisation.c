@@ -20,23 +20,23 @@ void	init_sprites(t_so_long *game)
 	game->sprite.player = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/player.xpm", &size, &size);
 	if (game->sprite.player == NULL)
-		map_error("Couldn't load the 'player' XPM.");
+		map_error("Couldn't load the 'player' XPM.", game);
 	game->sprite.exit = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/exittest.xpm", &size, &size);
 	if (game->sprite.exit == NULL)
-		map_error("Couldn't load the 'exit' XPM.");
+		map_error("Couldn't load the 'exit' XPM.", game);
 	game->sprite.collectible = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/collectibletest.xpm", &size, &size);
 	if (game->sprite.collectible == NULL)
-		map_error("Couldn't load the 'collectible' XPM.");
+		map_error("Couldn't load the 'collectible' XPM.", game);
 	game->sprite.wall = mlx_xpm_file_to_image(game->mlx, "./sprites/wall.xpm",
 			&size, &size);
 	if (game->sprite.wall == NULL)
-		map_error("Couldn't load the 'wall' XPM.");
+		map_error("Couldn't load the 'wall' XPM.", game);
 	game->sprite.ground = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/ground.xpm", &size, &size);
 	if (game->sprite.ground == NULL)
-		map_error("Couldn't load the 'ground' XPM.");
+		map_error("Couldn't load the 'ground' XPM.", game);
 }
 
 void	put_sprite_on_screen(t_so_long *game)

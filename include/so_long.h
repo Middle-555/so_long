@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/22 12:11:43 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/22 13:04:52 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,8 +111,8 @@ void					alloc_map(t_so_long *game);
 int						check_wall_error(t_so_long *game);
 void					create_game_window(t_so_long *game);
 size_t					ft_size_line(char *str);
-int						check_ber_format(char *str);
-void					map_error(char *str);
+int						check_ber_format(char *str, t_so_long *game);
+void					map_error(char *str, t_so_long *game);
 char					*ft_strjoin_n(char *s1, char *s2);
 void					init_sprites(t_so_long *game);
 void					put_sprite_on_screen(t_so_long *game);
@@ -133,6 +133,7 @@ void					free_game(t_so_long *game);
 int						map_parser_stock(t_so_long *game);
 //void					dfs(t_so_long *game, t_dfs *dfs_map, int x, int y);
 int						other_caracter(t_so_long *game);
+void					free_parser(t_so_long *game);
 
 
 #endif // SO_LONG_H//

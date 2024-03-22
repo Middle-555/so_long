@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:42:03 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/22 12:20:30 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/22 13:38:59 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int	main(int argc, char **argv)
 		ft_printf("Usage: ./so_short <map_file.ber>\n");
 		return (1);
 	}
-	game.window = NULL;
-	game.mlx = mlx_init();
+	// game.window = NULL;
+	// game.mlx = mlx_init();
 	map_stock(&game);
 	not_rectangular(&game);
 	not_enough_exit(&game);
@@ -40,10 +40,12 @@ int	main(int argc, char **argv)
 	//not_rectangular(&map);
 	wall_checker(&game);
 	check_last_line(&game);
+	game.window = NULL;
+	game.mlx = mlx_init();
 	init_sprites(&game);
 	create_game_window(&game);
 	put_sprite_on_screen(&game);
-	mlx_hook(game.window, 2, 1 << 0, &input_handler, &game);
+	// mlx_hook(game.window, 2, 1 << 0, &input_handler, &game);
 	mlx_hook(game.window, 2, 1L << 0, &input_handler, &game);
 	mlx_loop(game.mlx);
 	mlx_loop_hook(game.mlx, &input_handler, &game);

@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 16:03:01 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/22 12:24:21 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/22 12:59:56 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	check_last_line(t_so_long *game)
 	while (game->map.tab[i - 1][j])
 	{
 		if (game->map.tab[i -1][j] != WALL)
-			map_error("Please put wall.");
+			map_error("Please put wall.", game);
 		j++;
 	}
 	return (0);
@@ -47,7 +47,7 @@ int	other_caracter(t_so_long *game)
 			&& game->map.tab[i][j] != 'C'
 			&& game->map.tab[i][j] != 'E'
 			&& game->map.tab[i][j] != 'P')
-				map_error("Please put valid caracter in the map.");
+				map_error("Please put valid caracter in the map.", game);
 			j++;
 		}
 		i++;

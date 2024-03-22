@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:04:39 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/20 17:54:11 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/22 12:59:56 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	not_rectangular(t_so_long *game)
 	while (game->map.tab[i])
 	{
 		if (len != ft_strlen(game->map.tab[i]))
-			map_error("The map need to be rectangular.");
+			map_error("The map need to be rectangular.", game);
 		i++;
 	}
 	game->map.width = len;
@@ -52,7 +52,7 @@ int	not_enough_collectible(t_so_long *game)
 		i++;
 	}
 	if (game->count_collectible < 1)
-		map_error("Please put at least 1 collectible");
+		map_error("Please put at least 1 collectible", game);
 	return (0);
 }
 
@@ -81,7 +81,7 @@ int	not_enough_exit(t_so_long *game)
 		i++;
 	}
 	if (exit != 1)
-		map_error("Please put 1 exit.");
+		map_error("Please put 1 exit.", game);
 	return (0);
 }
 
@@ -110,7 +110,7 @@ int	check_player(t_so_long *game)
 		i++;
 	}
 	if (player_count != 1)
-		map_error("Please put only 1 player.");
+		map_error("Please put only 1 player.", game);
 	return (0);
 }
 
@@ -129,11 +129,11 @@ int	wall_checker(t_so_long *game)
 		while (game->map.tab[0][j])
 		{
 			if (game->map.tab[0][j] != WALL)
-				map_error("need wall.");
+				map_error("need wall.", game);
 			j++;
 		}
 		if (game->map.tab[i][0] != WALL && game->map.tab[i][len] != WALL)
-			map_error("Need wall.");
+			map_error("Need wall.", game);
 		i++;
 	}
 	return (0);
