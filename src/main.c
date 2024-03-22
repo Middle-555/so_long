@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:42:03 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/22 17:42:32 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/22 19:15:04 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,13 @@ int	main(int argc, char **argv)
 	aff_1tab(&game);
 	ft_printf("x%d \n", game.player_pos.p_position.x);
 	ft_printf("y%d \n", game.player_pos.p_position.y);
-	ft_printf(" p%d", game.player_pos.p_position);
 	dfs(game.player_pos.p_position, game.map.maptest, &game);
+	print_map(&game, game.map.maptest);
+	ft_printf("collectible find %d\n", game.map.collectible_find);
+	ft_printf("exit find %d\n", game.map.exit_find);
 	if (game.map.collectible_find != game.count_collectible
-		&& game.map.player_find != 1
-		&& game.map.exit_find != 1)
+		|| game.map.player_find != 1
+		|| game.map.exit_find != 1)
 		map_error("Cant reach exit or all collectible", &game);
 	game.window = NULL;
 	game.mlx = mlx_init();
