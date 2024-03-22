@@ -22,7 +22,7 @@ int	check_ber_format(char *str, t_so_long *game)
 		return (0);
 	else
 	{
-		map_error("Please use a game with the .ber extension", game);
+		map_error_standard("Please use a game with the .ber extension", game);
 		return (1);
 	}
 	return (0);
@@ -33,7 +33,22 @@ void	map_error(char *str, t_so_long *game)
 	ft_printf("Error\n");
 	ft_printf("%s\n", str);
 	free_tab(game);
+	exit(0);
+}
+void	map_error_parser(char *str, t_so_long *game)
+{
+	ft_printf("Error\n");
+	ft_printf("%s\n", str);
+	free_tab(game);
 	free_tab_maptest(game);
+	exit(0);
+}
+
+void	map_error_standard(char *str, t_so_long *game)
+{
+	(void)game;
+	ft_printf("Error\n");
+	ft_printf("%s\n", str);
 	exit(0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:04:39 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/22 12:59:56 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/22 19:25:44 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,7 @@ int	wall_checker(t_so_long *game)
 				map_error("need wall.", game);
 			j++;
 		}
-		if (game->map.tab[i][0] != WALL && game->map.tab[i][len] != WALL)
+		if (game->map.tab[i][0] != WALL || game->map.tab[i][len] != WALL)
 			map_error("Need wall.", game);
 		i++;
 	}

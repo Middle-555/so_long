@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:42:03 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/22 19:15:04 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/22 19:33:30 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	game.map.path = argv[1];
-	init_test(&game);
 	check_ber_format(game.map.path, &game);
 	map_stock(&game);
 	not_rectangular(&game);
@@ -32,10 +31,11 @@ int	main(int argc, char **argv)
 	not_enough_collectible(&game);
 	wall_checker(&game);
 	check_last_line(&game);
-	map_parser_stock(&game);
 	aff_tab(&game);
 	ft_printf("\n");
 	aff_1tab(&game);
+	init_test(&game);
+	map_parser_stock(&game);
 	ft_printf("x%d \n", game.player_pos.p_position.x);
 	ft_printf("y%d \n", game.player_pos.p_position.y);
 	dfs(game.player_pos.p_position, game.map.maptest, &game);
@@ -45,7 +45,7 @@ int	main(int argc, char **argv)
 	if (game.map.collectible_find != game.count_collectible
 		|| game.map.player_find != 1
 		|| game.map.exit_find != 1)
-		map_error("Cant reach exit or all collectible", &game);
+		map_error_parser("Cant reach exit or all collectible", &game);
 	game.window = NULL;
 	game.mlx = mlx_init();
 	init_sprites(&game);

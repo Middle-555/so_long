@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/22 18:22:44 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/22 19:35:35 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,4 +141,6 @@ void	aff_1tab(t_so_long *game);
 void	init_test(t_so_long *game);
 void	free_tab_maptest(t_so_long *game);
 void	print_map(t_so_long *game, char **map);
+void	map_error_parser(char *str, t_so_long *game);
+void	map_error_standard(char *str, t_so_long *game);
 #endif // SO_LONG_H//
