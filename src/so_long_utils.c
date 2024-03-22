@@ -33,6 +33,7 @@ void	map_error(char *str, t_so_long *game)
 	ft_printf("Error\n");
 	ft_printf("%s\n", str);
 	free_tab(game);
+	free_tab_maptest(game);
 	exit(0);
 }
 

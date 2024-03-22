@@ -16,6 +16,22 @@ void	free_tab(t_so_long *game)
 	free (game->map.tab);
 }
 
+void	free_tab_maptest(t_so_long *game)
+{
+	int	i;
+
+	i = 0;
+	if (game && game->map.maptest)
+	{
+		while (game->map.maptest[i])
+		{
+			free(game->map.maptest[i]);
+			i++;
+		}
+	}
+	free (game->map.maptest);
+}
+
 void	free_game(t_so_long *game)
 {
 	if (!game)
@@ -36,6 +52,8 @@ void	free_game(t_so_long *game)
 		mlx_destroy_display(game->mlx);
 	if (game->map.tab)
 		free_tab(game);
+	if (game->map.maptest)
+		free_tab_maptest(game);
 	if (game->mlx)
 		free(game->mlx);
 	exit (0);

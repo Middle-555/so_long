@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/22 16:20:12 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/22 17:51:10 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@
 
 typedef struct s_position
 {
-	int					x;
 	int					y;
+	int					x;
 	int					x_end;
 	int					y_end;
 }						t_position;
@@ -137,5 +137,8 @@ int						other_caracter(t_so_long *game);
 int						exit_game(t_so_long *game);
 t_position				direction_finder(t_position pos, int dir);
 void					dfs(t_position pos, char **visited, t_so_long *game);
+void	aff_1tab(t_so_long *game);
+void	init_test(t_so_long *game);
+void	free_tab_maptest(t_so_long *game);
 
 #endif // SO_LONG_H//

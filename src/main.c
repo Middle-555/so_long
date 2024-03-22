@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:42:03 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/22 17:13:14 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/22 17:42:32 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	game.map.path = argv[1];
+	init_test(&game);
 	check_ber_format(game.map.path, &game);
 	map_stock(&game);
 	not_rectangular(&game);
@@ -32,6 +33,12 @@ int	main(int argc, char **argv)
 	wall_checker(&game);
 	check_last_line(&game);
 	map_parser_stock(&game);
+	aff_tab(&game);
+	ft_printf("\n");
+	aff_1tab(&game);
+	ft_printf("x%d \n", game.player_pos.p_position.x);
+	ft_printf("y%d \n", game.player_pos.p_position.y);
+	ft_printf(" p%d", game.player_pos.p_position);
 	dfs(game.player_pos.p_position, game.map.maptest, &game);
 	if (game.map.collectible_find != game.count_collectible
 		&& game.map.player_find != 1
