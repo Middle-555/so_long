@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:42:03 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/22 21:52:07 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/23 11:02:11 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,13 @@ int	main(int argc, char **argv)
 	other_caracter(&game);
 	not_enough_collectible(&game);
 	aff_tab(&game);
-	//wall_checker(&game);
 	check_last_line(&game);
 	ft_printf("\n");
+	//map_parser_stock_exit_1(&game);
+	map_parser_stock(&game);
 	aff_1tab(&game);
 	init_test(&game);
-	map_parser_stock(&game);
+	//map_parser_stock(&game);
 	ft_printf("x%d \n", game.player_pos.p_position.x);
 	ft_printf("y%d \n", game.player_pos.p_position.y);
 	dfs(game.player_pos.p_position, game.map.maptest, &game);
@@ -48,6 +49,15 @@ int	main(int argc, char **argv)
 		|| game.map.player_find != 1
 		|| game.map.exit_find != 1)
 		map_error_parser("Cant reach exit or all collectible", &game);
+	free_tab_maptest(&game);
+	map_parser_stock_exit_1(&game);
+	aff_1tab(&game);
+	init_test(&game);
+	dfs2(game.player_pos.p_position, game.map.maptest, &game);
+	print_map(&game, game.map.maptest);
+	if (game.map.collectible_find != game.count_collectible
+		|| game.map.player_find != 1)
+		map_error_parser("Exit is blocking the way", &game);
 	game.window = NULL;
 	game.mlx = mlx_init();
 	init_sprites(&game);
