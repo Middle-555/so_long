@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:42:03 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/23 11:02:11 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/23 11:05:06 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int	main(int argc, char **argv)
 	game.map.path = argv[1];
 	check_ber_format(game.map.path, &game);
 	map_stock(&game);
-	wall_checker(&game);
 	not_rectangular(&game);
+	wall_checker(&game);
 	not_enough_exit(&game);
 	check_player(&game);
 	other_caracter(&game);

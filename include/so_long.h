@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/23 10:42:29 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/23 11:30:54 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,48 +101,58 @@ typedef struct s_so_long
 	int					count_exit;
 }						t_so_long;
 
-// Function prototypes
-int						input_handler(int keycode, t_so_long *game);
-int						player_move_up(t_so_long *game);
-int						player_move_down(t_so_long *game);
-int						player_move_right(t_so_long *game);
-int						player_move_left(t_so_long *game);
-int						map_parser(t_so_long *game);
-void					fill_map(t_so_long *game, const char *path);
-void					alloc_map(t_so_long *game);
-int						check_wall_error(t_so_long *game);
-void					create_game_window(t_so_long *game);
-size_t					ft_size_line(char *str);
-int						check_ber_format(char *str, t_so_long *game);
-void					map_error(char *str, t_so_long *game);
-char					*ft_strjoin_n(char *s1, char *s2);
-void					init_sprites(t_so_long *game);
-void					put_sprite_on_screen(t_so_long *game);
-int						ft_total_len(char *path);
+
+// Stocking map and temp map
+int						map_parser_stock(t_so_long *game);
 int						map_stock(t_so_long *game);
-void					free_tab(t_so_long *game);
+int						map_parser_stock_exit_1(t_so_long *game);
+// Map error 
+int						check_ber_format(char *str, t_so_long *game);
 int						not_rectangular(t_so_long *game);
 int						not_enough_collectible(t_so_long *game);
 int						not_enough_exit(t_so_long *game);
 int						check_player(t_so_long *game);
 int						wall_checker(t_so_long *game);
 int						check_last_line(t_so_long *game);
-void					aff_tab(t_so_long *game);
-void					refresh(t_so_long *game, int i, int j);
-int						move_ok(t_so_long *game, int new_x, int new_y);
-void					game_success(t_so_long *game);
-void					free_game(t_so_long *game);
-int						map_parser_stock(t_so_long *game);
+int						check_wall_error(t_so_long *game);
 int						other_caracter(t_so_long *game);
+
+
+// Move and Input
+int						input_handler(int keycode, t_so_long *game);
+int						player_move_up(t_so_long *game);
+int						player_move_down(t_so_long *game);
+int						player_move_right(t_so_long *game);
+int						player_move_left(t_so_long *game);
+int						move_ok(t_so_long *game, int new_x, int new_y);
+void					refresh(t_so_long *game, int i, int j);
+
+// Create window and sprite gestion
+void					create_game_window(t_so_long *game);
+void					init_sprites(t_so_long *game);
+void					put_sprite_on_screen(t_so_long *game);
+
+// Error handler and ending
+void					map_error(char *str, t_so_long *game);
+void					game_success(t_so_long *game);
 int						exit_game(t_so_long *game);
+
+// Utils
+int						ft_total_len(char *path);
+void					aff_tab(t_so_long *game);
+void					aff_1tab(t_so_long *game);
+void					print_map(t_so_long *game, char **map);
+
+// Different free
+void					free_tab(t_so_long *game);
+void					free_game(t_so_long *game);
+void					free_tab_maptest(t_so_long *game);
+
+// Parsing with dfs
 t_position				direction_finder(t_position pos, int dir);
 void					dfs(t_position pos, char **visited, t_so_long *game);
-void	aff_1tab(t_so_long *game);
-void	init_test(t_so_long *game);
-void	free_tab_maptest(t_so_long *game);
-void	print_map(t_so_long *game, char **map);
-void	map_error_parser(char *str, t_so_long *game);
-void	map_error_standard(char *str);
-void	dfs2(t_position pos, char **visited, t_so_long *game);
-int	map_parser_stock_exit_1(t_so_long *game);
+void					init_test(t_so_long *game);
+void					map_error_parser(char *str, t_so_long *game);
+void					map_error_standard(char *str);
+void					dfs2(t_position pos, char **visited, t_so_long *game);
 #endif // SO_LONG_H//
