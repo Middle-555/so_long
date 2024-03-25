@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:23:43 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/25 15:00:49 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/25 15:17:57 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	player_move_up(t_so_long *game)
 		mlx_put_image_to_window(game->mlx, game->window, game->sprite.player,
 			game->player_pos.p_position.x * 96,
 			new_y * 96);
-		ft_printf("Nombre de mouvement : %d\n", game->count_step++);
+		ft_printf("Nombre de mouvements : %d\n", game->count_step++);
 	}
 	return (0);
 }
@@ -61,7 +61,7 @@ int	player_move_down(t_so_long *game)
 		mlx_put_image_to_window(game->mlx, game->window, game->sprite.player,
 			game->player_pos.p_position.x * 96,
 			new_y * 96);
-		ft_printf("Nombre de mouvement : %d\n", game->count_step++);
+		ft_printf("Nombre de mouvements : %d\n", game->count_step++);
 	}
 	return (0);
 }
@@ -88,7 +88,7 @@ int	player_move_right(t_so_long *game)
 		mlx_put_image_to_window(game->mlx, game->window, game->sprite.player,
 			game->player_pos.p_position.x * 96,
 			game->player_pos.p_position.y * 96);
-		ft_printf("Nombre de mouvement : %d\n", game->count_step++);
+		ft_printf("Nombre de mouvements : %d\n", game->count_step++);
 	}
 	return (0);
 }
@@ -115,7 +115,7 @@ int	player_move_left(t_so_long *game)
 		mlx_put_image_to_window(game->mlx, game->window, game->sprite.player,
 			game->player_pos.p_position.x * 96,
 			game->player_pos.p_position.y * 96);
-		ft_printf("Nombre de mouvement : %d\n", game->count_step++);
+		ft_printf("Nombre de mouvements : %d\n", game->count_step++);
 	}
 	return (0);
 }

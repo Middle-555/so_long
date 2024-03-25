@@ -61,8 +61,8 @@ int	ft_total_len(char *path)
 	c = 'c';
 	i = 0;
 	fd = open(path, O_RDONLY);
-	if (fd < 0)
-		return (0);
+	if (fd == -1)
+		return (1);
 	while (read(fd, &c, 1) != '\0')
 	{
 		i++;

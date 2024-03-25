@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 17:59:48 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/25 14:28:35 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/25 17:19:16 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	map_parser_stock(t_so_long *game)
 	if (!game->map.line)
 		return (0);
 	game->map.fd = open(game->map.path, O_RDONLY);
+	if (game->map.fd == -1)
+		return (1);
 	while (read(game->map.fd, &c, 1) != '\0')
 	{
 		game->map.line[i] = c;
@@ -52,6 +54,8 @@ int	map_parser_stock_exit_1(t_so_long *game)
 	if (!game->map.line)
 		return (0);
 	game->map.fd = open(game->map.path, O_RDONLY);
+	if (game->map.fd == -1)
+		return (1);
 	while (read(game->map.fd, &c, 1) != '\0')
 	{
 		if (c == 'E')

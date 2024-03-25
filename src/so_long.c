@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:49 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/25 15:00:34 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/25 17:45:16 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,15 @@ int	map_stock(t_so_long *game)
 
 	i = 0;
 	c = 'c';
+	game->map.fd = open(game->map.path, O_RDONLY);
+	if (game->map.fd == -1)
+	{
+		map_error_standard("please put a real .ber");
+	}
 	len = ft_total_len(game->map.path);
 	game->map.line = malloc(sizeof(char) * (len + 1));
 	if (!game->map.line)
 		return (0);
-	game->map.fd = open(game->map.path, O_RDONLY);
 	while (read(game->map.fd, &c, 1) != '\0')
 	{
 		game->map.line[i] = c;

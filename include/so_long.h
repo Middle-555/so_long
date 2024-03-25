@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:46 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/25 14:42:19 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/25 15:18:57 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,6 @@ typedef struct s_so_long
 	int					count_exit;
 }						t_so_long;
 
-
 // Stocking map and temp map
 int						map_parser_stock(t_so_long *game);
 int						map_stock(t_so_long *game);
@@ -116,7 +115,6 @@ int						wall_checker(t_so_long *game);
 int						check_last_line(t_so_long *game);
 int						check_wall_error(t_so_long *game);
 int						other_caracter(t_so_long *game);
-
 
 // Move and Input
 int						input_handler(int keycode, t_so_long *game);
