@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 16:03:01 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/25 14:59:13 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/25 15:09:50 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ int	check_last_line(t_so_long *game)
 	j = 0;
 	while (game->map.tab[i])
 		i++;
-	while (game->map.tab[i - 1][j])
+	i--;
+	while (game->map.tab[i][j])
 	{
-		if (game->map.tab[i -1][j] != WALL)
+		if (game->map.tab[i][j] != WALL)
 			map_error("Please put wall.", game);
 		j++;
 	}

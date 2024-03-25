@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:42:03 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/25 14:43:45 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/25 15:10:37 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	check_map_infos(t_so_long *game)
 	not_enough_exit(game);
 	check_player(game);
 	other_caracter(game);
+	check_last_line(game);
 	not_enough_collectible(game);
 }
 
