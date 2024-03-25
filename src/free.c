@@ -1,5 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   free.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/25 14:20:53 by kpourcel          #+#    #+#             */
+/*   Updated: 2024/03/25 14:23:01 by kpourcel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/so_long.h"
 
+// Free our tab.
 void	free_tab(t_so_long *game)
 {
 	int	i;
@@ -16,6 +29,8 @@ void	free_tab(t_so_long *game)
 	free (game->map.tab);
 }
 
+// free the second tab where we stock our map
+// with exit define on '1' and not 'E'/.
 void	free_tab_maptest(t_so_long *game)
 {
 	int	i;
@@ -32,6 +47,7 @@ void	free_tab_maptest(t_so_long *game)
 	free (game->map.maptest);
 }
 
+// Free everything.
 void	free_game(t_so_long *game)
 {
 	if (!game)
@@ -59,8 +75,9 @@ void	free_game(t_so_long *game)
 	exit (0);
 }
 
+// Function needed to exit the game when we click.
 int	exit_game(t_so_long *game)
 {
 	free_game(game);
-	return(0);
+	return (0);
 }

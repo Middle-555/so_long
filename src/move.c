@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:23:43 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/21 18:53:46 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/25 14:29:09 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	player_move_up(t_so_long *game)
 	}
 	return (0);
 }
+
 
 int	player_move_down(t_so_long *game)
 {
@@ -120,6 +121,7 @@ int	player_move_left(t_so_long *game)
 	return (0);
 }
 
+// Check if the movement is possible.
 int	move_ok(t_so_long *game, int new_y, int new_x)
 {
 	if (game->map.tab[new_y][new_x] == WALL)

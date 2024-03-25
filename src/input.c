@@ -6,12 +6,13 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 14:49:42 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/20 17:43:10 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/25 14:23:01 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
+// Input handler based on the keycode defined in the .h
 int	input_handler(int keycode, t_so_long *game)
 {
 	if (keycode == KEY_Z || keycode == KEY_UP)

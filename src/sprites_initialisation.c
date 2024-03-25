@@ -12,6 +12,7 @@
 
 #include "../include/so_long.h"
 
+// Stock the sprites with the correct size.
 void	init_sprites(t_so_long *game)
 {
 	int	size;
@@ -39,6 +40,7 @@ void	init_sprites(t_so_long *game)
 		map_error("Couldn't load the 'ground' XPM.", game);
 }
 
+// Displays sprites on the screen.
 void	put_sprite_on_screen(t_so_long *game)
 {
 	int	i;
@@ -57,6 +59,9 @@ void	put_sprite_on_screen(t_so_long *game)
 	}
 }
 
+// Refresh the position everytime the player move. 
+// This fonction put a ground where the player was and put the 
+// the player to his new localisation.
 void	refresh(t_so_long *game, int i, int j)
 {
 	if (game->map.tab[i][j] == WALL)

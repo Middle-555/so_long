@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:04:39 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/22 21:55:27 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/25 14:20:04 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	not_enough_collectible(t_so_long *game)
 	return (0);
 }
 
-// Check if there is 1 exit.
+// Check if there is only 1 exit.
 int	not_enough_exit(t_so_long *game)
 {
 	int	i;
@@ -85,7 +85,7 @@ int	not_enough_exit(t_so_long *game)
 	return (0);
 }
 
-// Check if there is 
+// Check if there is only 1 player is the map.
 int	check_player(t_so_long *game)
 {
 	int			i;
@@ -114,6 +114,8 @@ int	check_player(t_so_long *game)
 	return (0);
 }
 
+// Check that the first line, the first caracter of each line,
+// and the last caracter of each line are entirely composed of wall.
 int	wall_checker(t_so_long *game)
 {
 	int	i;

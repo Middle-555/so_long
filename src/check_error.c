@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 16:03:01 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/24 12:54:54 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/25 14:20:31 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	check_last_line(t_so_long *game)
 	return (0);
 }
 
-// Check for other caracter
+// Check for other caracter in the map. If there is use map_error to stop.
 int	other_caracter(t_so_long *game)
 {
 	int	i;

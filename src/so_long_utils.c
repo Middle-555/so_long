@@ -35,6 +35,7 @@ void	map_error(char *str, t_so_long *game)
 	free_tab(game);
 	exit(0);
 }
+
 void	map_error_parser(char *str, t_so_long *game)
 {
 	ft_printf("Error\n");

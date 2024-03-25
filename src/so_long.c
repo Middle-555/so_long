@@ -6,12 +6,13 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:01:49 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/22 17:18:21 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/25 14:31:40 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
+// Stock the real map.
 int	map_stock(t_so_long *game)
 {
 	int		len;
@@ -37,6 +38,7 @@ int	map_stock(t_so_long *game)
 	return (0);
 }
 
+// Create game windows with my dimensions.
 void	create_game_window(t_so_long *game)
 {
 	if (game->mlx == NULL)
@@ -50,6 +52,7 @@ void	create_game_window(t_so_long *game)
 	}
 }
 
+// Show my map.
 void	aff_tab(t_so_long *game)
 {
 	int	i;
@@ -63,6 +66,7 @@ void	aff_tab(t_so_long *game)
 	ft_printf("\n");
 }
 
+// show the copy of my map.
 void	aff_1tab(t_so_long *game)
 {
 	int	i;
@@ -77,6 +81,7 @@ void	aff_1tab(t_so_long *game)
 
 }
 
+// Print the success and exit without leaks.
 void	game_success(t_so_long *game)
 {
 	ft_printf("%s \n", "Congratulation you finished the game.");
