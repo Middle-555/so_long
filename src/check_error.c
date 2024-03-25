@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 16:03:01 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/25 14:20:31 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/25 14:59:13 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,3 +55,12 @@ int	other_caracter(t_so_long *game)
 	}
 	return (0);
 }
+
+/*void 	check_if_empty(t_so_long *game)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+}*/

@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 15:04:39 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/25 14:20:04 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/25 14:52:26 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,6 @@ int	wall_checker(t_so_long *game)
 
 	i = 0;
 	len = ft_strlen(game->map.tab[i]);
-	ft_printf("len%d \n", len);
 	while (game->map.tab[i])
 	{
 		j = 0;

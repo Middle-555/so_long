@@ -52,7 +52,6 @@ void	map_error_standard(char *str)
 	exit(0);
 }
 
-
 int	ft_total_len(char *path)
 {
 	int		fd;

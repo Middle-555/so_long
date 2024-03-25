@@ -6,13 +6,13 @@
 #    By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/06 18:01:15 by kpourcel          #+#    #+#              #
-#    Updated: 2024/03/12 17:35:42 by kpourcel         ###   ########.fr        #
+#    Updated: 2024/03/25 14:48:43 by kpourcel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 # Name of the program
-NAME    =    so_short
+NAME    =    so_long
 
 # Flags
 CC		=	gcc
