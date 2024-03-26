@@ -6,7 +6,7 @@
 /*   By: kpourcel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 12:42:03 by kpourcel          #+#    #+#             */
-/*   Updated: 2024/03/25 17:35:45 by kpourcel         ###   ########.fr       */
+/*   Updated: 2024/03/26 14:51:21 by kpourcel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		ft_printf("Usage: ./so_short <map_file.ber>\n");
+		ft_printf("Usage: ./so_long <map_file.ber>\n");
 		return (1);
 	}
 	game.map.path = argv[1];
